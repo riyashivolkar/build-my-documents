@@ -15,13 +15,14 @@ const BackButton = () => {
 
   return (
     <div className="w-full p-3 flex justify-start bg-[#f7941d]">
-      <div className="container mx-auto">
+      <div className="container flex flex-row mx-auto">
         <button onClick={handleBack}>
           <img
             src="/backArrow.svg"
             alt="Go back"
             className="object-cover w-10 h-10"
           />
+          <h1></h1>
         </button>
       </div>
     </div>

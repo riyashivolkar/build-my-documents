@@ -99,7 +99,7 @@ const Page = () => {
             <br />
             <div className="flex flex-row items-end justify-end p-5 ">
               <Link href={`/form?service=${selectedService}`}>
-                <button className="bg-[#f7941d] px-4 py-2 sm:text-2xl text-base shadow-lg text-white rounded-md">
+                <button className="bg-[#f7941d] px-4 py-2 sm:text-2xl text-sm shadow-lg text-white rounded-md">
                   CONTINUE
                 </button>
               </Link>

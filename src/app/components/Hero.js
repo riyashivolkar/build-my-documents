@@ -9,9 +9,8 @@ import Footer from "./Footer";
 const Hero = () => {
   const { pathname } = useRouter();
 
-  // Check if the current route is `/terms-conditions`
   if (pathname === "/terms-conditions") {
-    return null; // Do not render Hero on this page
+    return null;
   }
 
   return (
@@ -30,7 +29,7 @@ const Hero = () => {
           <h1 className="text-2xl sm:text-4xl md:text-5xl py-2 sm:py-0 font-medium mb-4 sm:mb-6 lg:mb-8 text-[#f7941d]">
             Online Documents Consultancy.
           </h1>
-          <p className="text-[12px] sm:text-[17px] md:text-[20px] mb-8 sm:mb-10 lg:mb-12">
+          <p className="text-[11px] sm:text-[17px] md:text-[20px] mb-8 sm:mb-10 lg:mb-12">
             Documentation can be frustrating and time-consuming. Let us take the
             stress out of the process and simplify it for you.
           </p>
