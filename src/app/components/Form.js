@@ -157,7 +157,7 @@ const Form = () => {
     <div className="container flex flex-col px-8 pt-6 pb-8 mx-auto my-2 mb-4 bg-white rounded shadow-md">
       {service && formData[service] && (
         <div className="px-12">
-          <h2 className="sm:text-xl text-base font-semibold text-[#f7941d]">
+          <h2 className="sm:text-xl text-md py-2 font-semibold text-[#f7941d]">
             Documents Required for{" "}
             {service === "senior"
               ? "Senior Citizen Card"
@@ -173,7 +173,7 @@ const Form = () => {
                   service.charAt(0).toUpperCase() + service.slice(1)
                 } Certificate`}
           </h2>
-          <p className="text-sm text-gray-600 sm:text-xl">
+          <p className="text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (
               <span key={index}>
                 {index + 1}. {doc}
@@ -181,7 +181,7 @@ const Form = () => {
               </span>
             ))}
           </p>
-          <p className="py-2 text-base text-gray-600">
+          <p className="py-2 text-xs text-gray-500 sm:text-base">
             Note: Upload whatever documents you have right now. Please prepare
             the rest for later.
           </p>
@@ -262,8 +262,8 @@ const Form = () => {
               <p className="text-xs italic text-red-500">{errors.phone}</p>
             )}
           </div>
-
-          <div className="px-3 md:w-1/2">
+          {/* <div className="mb-6 -mx-3 md:flex"></div> */}
+          <div className="px-3 pt-4 mb-6 -mx-3 sm:pt-0 md:w-1/2">
             <label
               className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
               htmlFor="documents"
