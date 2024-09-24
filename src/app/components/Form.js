@@ -175,10 +175,10 @@ const Form = () => {
           </h2>
           <p className="text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (
-              <span key={index}>
+              <p key={index} className="">
                 {index + 1}. {doc}
                 <br />
-              </span>
+              </p>
             ))}
           </p>
           <p className="py-2 text-xs text-gray-500 sm:text-base">
@@ -262,7 +262,6 @@ const Form = () => {
               <p className="text-xs italic text-red-500">{errors.phone}</p>
             )}
           </div>
-          {/* <div className="mb-6 -mx-3 md:flex"></div> */}
           <div className="px-3 pt-4 mb-6 -mx-3 sm:pt-0 md:w-1/2">
             <label
               className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
