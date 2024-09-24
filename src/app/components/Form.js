@@ -188,7 +188,7 @@ const Form = () => {
           </h2>
           <div className="my-2 text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (
-              <div key={index} className="my-1 ">
+              <div key={index} className="my-2 ">
                 {index + 1}. {doc}
                 <br />
               </div>
