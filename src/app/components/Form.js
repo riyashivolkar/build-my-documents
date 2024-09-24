@@ -188,7 +188,7 @@ const Form = () => {
           </h2>
           <p className="text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (
-              <span key={index} className="p-2">
+              <span key={index} className="py-3">
                 {index + 1}. {doc}
                 <br />
               </span>
