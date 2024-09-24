@@ -175,10 +175,10 @@ const Form = () => {
           </h2>
           <p className="text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (
-              <p key={index} className="p-1">
+              <span key={index} className="p-1">
                 {index + 1}. {doc}
                 <br />
-              </p>
+              </span>
             ))}
           </p>
           <p className="py-2 text-xs text-gray-500 sm:text-base">
