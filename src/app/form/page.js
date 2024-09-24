@@ -3,14 +3,13 @@
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { formData } from "../utils/data/menuData";
-import { collection, addDoc } from "firebase/firestore"; // Import Firestore functions
-import { db } from "../../../firebase/firebaseConfig"; // Adjust import path to match your folder structure
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage, db } from "../../../firebase/firebaseConfig";
 
 const Page = () => {
   const searchParams = useSearchParams();
   const service = searchParams.get("service");
-  const storage = getStorage();
 
   const [formState, setFormState] = useState({
     name: "",
@@ -21,7 +20,9 @@ const Page = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [progress, setProgress] = useState([]); // Progress tracking for file uploads
 
+  // Handle form input change
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -42,27 +43,21 @@ const Page = () => {
     }
   };
 
-  const uploadFiles = async (file) => {
-    const storageRef = ref(storage, `documents/${file.name}`);
-
-    try {
-      const snapshot = await uploadBytes(storageRef, file);
-      console.log("Uploaded a file!");
-    } catch (error) {
-      console.error("Error uploading file:", error);
-    }
-  };
+  // Handle file selection and add to formState
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
     setFormState((prevState) => ({
       ...prevState,
       documents: [...prevState.documents, ...files],
     }));
+
+    // Reset the progress tracking
+    setProgress(Array(files.length).fill(0));
   };
 
+  // Set service from search params
   useEffect(() => {
     if (service) {
-      console.log("Service parameter:", service); // Add this log
       setFormState((prevState) => ({
         ...prevState,
         service: service,
@@ -73,7 +68,7 @@ const Page = () => {
   // Validation logic
   const validateForm = () => {
     let formErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Validate Name
     if (!formState.name.trim()) {
@@ -100,50 +95,85 @@ const Page = () => {
     return Object.keys(formErrors).length === 0;
   };
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     if (validateForm()) {
-  //       console.log(formState);
-  //       // Handle your form submission logic
-  //     }
-  //   };
+  // Upload files to Firebase and return download URLs
+  const uploadFiles = async (files) => {
+    const fileUploadPromises = files.map((file, index) => {
+      const storageRef = ref(storage, `documents/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
+      return new Promise((resolve, reject) => {
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progressPercent =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+
+            // Update individual progress
+            setProgress((prevProgress) => {
+              const updatedProgress = [...prevProgress];
+              updatedProgress[index] = progressPercent;
+              return updatedProgress;
+            });
+          },
+          (error) => reject(error),
+          async () => {
+            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+            resolve(downloadURL);
+          }
+        );
+      });
+    });
+
+    return Promise.all(fileUploadPromises);
+  };
+
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const uploadedFiles = await uploadFiles(formState.documents);
+        const uploadedFilesURLs = await uploadFiles(formState.documents);
 
         // Add form data to Firestore
         const docRef = await addDoc(collection(db, "formSubmissions"), {
           name: formState.name,
           email: formState.email,
           phone: formState.phone,
-          documents: uploadedFiles,
+          documents: uploadedFilesURLs,
           service: formState.service,
         });
+
         console.log(
           "Form data successfully submitted! Document ID:",
           docRef.id
         );
       } catch (error) {
-        console.error("Error submitting form: ", error.message); // More specific error logging
+        console.error("Error submitting form: ", error.message);
       }
     }
   };
 
   return (
     <div className="container flex flex-col px-8 pt-6 pb-8 mx-auto my-2 mb-4 bg-white rounded shadow-md">
-      {/* <h1 className="mb-4 text-2xl font-bold">
-        Selected Service: {formState.service}
-      </h1> */}
       {service && formData[service] && (
-        <div className="px-12 ">
+        <div className="px-12">
           <h2 className="sm:text-xl text-base font-semibold text-[#f7941d]">
             Documents Required for{" "}
-            {service.charAt(0).toUpperCase() + service.slice(1)} Certificate
+            {service === "senior"
+              ? "Senior Citizen Card"
+              : service === "shops"
+              ? "Shops and Establishment Act"
+              : service === "ration"
+              ? "Ration Card"
+              : service === "passport"
+              ? "Passport"
+              : service === "food"
+              ? "Food License"
+              : `${
+                  service.charAt(0).toUpperCase() + service.slice(1)
+                } Certificate`}
           </h2>
-          <p className="text-sm text-gray-600 sm:text-xl ">
+          <p className="text-sm text-gray-600 sm:text-xl">
             {formData[service].map((doc, index) => (
               <span key={index}>
                 {index + 1}. {doc}
@@ -151,9 +181,13 @@ const Page = () => {
               </span>
             ))}
           </p>
+          <p className="py-2 text-base text-gray-600">
+            Note: Upload whatever documents you have right now. Please prepare
+            the rest for later.
+          </p>
         </div>
       )}
-      <form onSubmit={handleSubmit} className="w-full p-12 ">
+      <form onSubmit={handleSubmit} className="w-full p-12">
         <div className="mb-6 -mx-3 md:flex">
           <div className="px-3 mb-6 md:w-1/2 md:mb-0">
             <label
@@ -170,7 +204,7 @@ const Page = () => {
               name="name"
               type="text"
               placeholder="John Doe"
-              value={formData.name}
+              value={formState.name}
               onChange={handleChange}
               required
             />
@@ -194,7 +228,7 @@ const Page = () => {
               name="email"
               type="email"
               placeholder="johndoe@example.com"
-              value={formData.email}
+              value={formState.email}
               onChange={handleChange}
               required
             />
@@ -224,7 +258,6 @@ const Page = () => {
               onChange={handleChange}
               required
             />
-
             {errors.phone && (
               <p className="text-xs italic text-red-500">{errors.phone}</p>
             )}
@@ -237,6 +270,7 @@ const Page = () => {
             >
               Upload Documents
             </label>
+
             <input
               className="block w-full px-4 py-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-grey-lighter"
               id="documents"
@@ -245,6 +279,15 @@ const Page = () => {
               multiple
               onChange={handleFileChange}
             />
+            {progress.length > 0 && (
+              <div>
+                {progress.map((prog, index) => (
+                  <p key={index}>
+                    Upload Progress for file {index + 1}: {prog.toFixed(2)}%
+                  </p>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

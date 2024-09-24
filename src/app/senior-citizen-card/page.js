@@ -1,6 +1,8 @@
+import Link from "next/link";
 import React from "react";
 
 const Page = () => {
+  const selectedService = "senior";
   return (
     <section className="p-8 text-gray-600 body-font">
       <div className="container px-5 mx-auto bg-white py-14">
@@ -104,9 +106,11 @@ const Page = () => {
             </li>
             <br />
             <div className="flex flex-row items-end justify-end p-5 ">
-              <button className=" bg-[#f7941d] px-4 py-2 sm:text-2xl text-xl shadow-lg text-white rounded-md">
-                CONTINUE
-              </button>
+              <Link href={`/form?service=${selectedService}`}>
+                <button className="bg-[#f7941d] px-4 py-2 sm:text-2xl text-xl shadow-lg text-white rounded-md">
+                  CONTINUE
+                </button>
+              </Link>
             </div>
           </ul>
         </div>
