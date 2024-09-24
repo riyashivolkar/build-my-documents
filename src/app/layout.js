@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import ConditionalWrapper from "./utils/ConditionalWrapper";
 import BackButton from "./components/BackButton";
 import { PageProvider, usePageContext } from "./utils/context/PageContext";
+import ConditionalBackButton from "./utils/ConditionalBackButton";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,14 +30,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-200`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased bg-gray-200`}
       >
         <PageProvider>
           <Header />
           <ConditionalWrapper>
             <Hero />
           </ConditionalWrapper>
-          <BackButton />
+          <ConditionalBackButton />
           <main>{children}</main>
           <Footer />
         </PageProvider>
