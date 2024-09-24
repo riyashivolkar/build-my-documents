@@ -186,14 +186,14 @@ const Form = () => {
                   service.charAt(0).toUpperCase() + service.slice(1)
                 } Certificate`}
           </h2>
-          <p className="text-sm text-gray-500 sm:text-xl">
+          <div className="my-2 text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (
-              <span key={index} className="py-3">
+              <div key={index} className="my-1 ">
                 {index + 1}. {doc}
                 <br />
-              </span>
+              </div>
             ))}
-          </p>
+          </div>
           <p className="py-2 text-xs text-gray-500 sm:text-base">
             Note: Upload whatever documents you have right now. Please prepare
             the rest for later.
