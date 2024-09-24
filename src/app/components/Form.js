@@ -128,6 +128,7 @@ const Form = () => {
   };
 
   // Handle form submission
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -147,6 +148,18 @@ const Form = () => {
           "Form data successfully submitted! Document ID:",
           docRef.id
         );
+
+        // Clear the form inputs by resetting formState to initial values
+        setFormState({
+          name: "",
+          email: "",
+          phone: "",
+          documents: [],
+          service: formState.service, // Keep the service as it might be set by the URL params
+        });
+
+        // Optionally, clear the file input progress as well
+        setProgress([]);
       } catch (error) {
         console.error("Error submitting form: ", error.message);
       }
