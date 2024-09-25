@@ -63,9 +63,11 @@ const Header = () => {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
-        <div className="relative flex flex-col items-center justify-center w-4/5 max-w-md p-6 transition-all duration-300 bg-gray-200 border-2 rounded-lg shadow-lg">
-          <div className="flex items-center justify-between w-full mb-4">
-            <h2 className="text-3xl font-bold text-black">Main Menu</h2>
+        <div className="relative flex flex-col items-center justify-center w-4/5 max-w-md p-2 mx-20 transition-all duration-300 bg-gray-200 border-2 rounded-lg shadow-lg sm:p-6">
+          <div className="flex items-center justify-end w-full ">
+            {/* <h2 className="font-bold text-black sm:text-3xl text-md">
+               Menu
+            </h2> */}
             <button
               onClick={handleMenuToggle}
               className="text-gray-600 transition-opacity hover:text-black"
@@ -75,18 +77,18 @@ const Header = () => {
                 src="/close.svg"
                 className="text-orange-400 "
                 alt="Close"
-                width={30}
-                height={30}
+                width={20}
+                height={20}
               />
             </button>
           </div>
-          <nav className="flex flex-col items-center w-full space-y-3">
+          <nav className="flex flex-col items-center w-[75%] space-y-3">
             {menuHeader.map((item, index) =>
               item.path ? (
                 <Link
                   key={index}
                   href={item.path}
-                  className="w-full py-2 text-center text-black transition bg-white rounded-md hover:bg-gray-200"
+                  className="w-full py-2 text-sm text-center text-black transition bg-white rounded-md hover:bg-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
