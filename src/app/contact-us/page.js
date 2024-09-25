@@ -26,7 +26,7 @@ const page = () => {
                 <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">
                   ADDRESS
                 </h2>
-                <p class="mt-1 text-xs">
+                <p class="mt-1 text-xs my-2">
                   B 403 4th Floor, Saldanha Business tower, Near court junction,
                   Mapusa, Bardez, Goa 403507
                 </p>
@@ -41,7 +41,7 @@ const page = () => {
                 <h2 class="title-font uppercase font-semibold text-gray-900 tracking-widest text-xs mt-4">
                   Business Hours
                 </h2>
-                <p class="leading-relaxed text-xs">
+                <p class="leading-relaxed text-xs my-2">
                   Monday to Friday (09:30-17:30)
                 </p>
               </div>
