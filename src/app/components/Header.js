@@ -65,7 +65,7 @@ const Header = () => {
       >
         <div className="relative flex flex-col items-center justify-center w-4/5 max-w-md p-8 mx-20 transition-all duration-500 transform rounded-lg shadow-xl bg-gradient-to-br from-white to-gray-100">
           <div className="flex items-center justify-between w-full mb-6">
-            <h2 className="text-3xl font-bold text-gray-800">Menu</h2>
+            <h2 className="text-xl font-bold text-gray-800">Menu</h2>
             <button
               onClick={handleMenuToggle}
               className="text-gray-500 transition-opacity hover:text-gray-800"
@@ -87,7 +87,7 @@ const Header = () => {
                 <Link
                   key={index}
                   href={item.path}
-                  className="w-full py-3 text-lg text-center text-black transition-all duration-300 transform bg-white rounded-lg shadow-md hover:bg-orange-400 hover:text-white hover:shadow-lg hover:scale-105"
+                  className="w-full py-3 text-center text-black transition-all duration-300 transform bg-white rounded-lg shadow-md text-md hover:bg-orange-400 hover:text-white hover:shadow-lg hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
