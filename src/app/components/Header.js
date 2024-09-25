@@ -1,4 +1,4 @@
-"use client"; // Ensures this is a client component
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -23,7 +23,7 @@ const Header = () => {
               width={280}
               height={68}
               priority
-              className="w-64 h-auto md:w-80 md:h-auto" // Adjust size for small and large screens
+              className="w-64 h-auto md:w-80 md:h-auto"
             />
           </Link>
         </div>
@@ -59,25 +59,34 @@ const Header = () => {
 
       {/* Mobile navigation menu */}
       <div
-        className={`fixed inset-0  bg-black bg-opacity-60 flex flex-col items-center justify-center z-50 transition-transform transform ${
-          isMenuOpen ? "scale-100" : "scale-0"
+        className={`fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
-        <div className="relative flex flex-col items-center justify-center w-1/2 bg-gray-200 border-2 rounded-md ml-28 mb-80 top-2 left-2 h-1/3">
-          <button
-            onClick={handleMenuToggle}
-            className="absolute text-black top-4 right-4 hover:text-gray-700"
-            aria-label="Close menu"
-          >
-            <Image src="/close.svg" alt="Close" width={34} height={34} />
-          </button>
-          <nav className="flex flex-col items-center mt-10 text-2xl">
+        <div className="relative flex flex-col items-center justify-center w-4/5 max-w-md p-6 transition-all duration-300 bg-gray-200 border-2 rounded-lg shadow-lg">
+          <div className="flex items-center justify-between w-full mb-4">
+            <h2 className="text-3xl font-bold text-black">Main Menu</h2>
+            <button
+              onClick={handleMenuToggle}
+              className="text-gray-600 transition-opacity hover:text-black"
+              aria-label="Close menu"
+            >
+              <Image
+                src="/close.svg"
+                className="text-orange-400 "
+                alt="Close"
+                width={30}
+                height={30}
+              />
+            </button>
+          </div>
+          <nav className="flex flex-col items-center w-full space-y-3">
             {menuHeader.map((item, index) =>
               item.path ? (
                 <Link
                   key={index}
                   href={item.path}
-                  className="mb-4 text-black cursor-pointer hover:text-[#f7941d]"
+                  className="w-full py-2 text-center text-black transition bg-white rounded-md hover:bg-gray-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

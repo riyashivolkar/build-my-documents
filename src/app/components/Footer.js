@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { companyLinks, legalLinks, socialLinks } from "../utils/data/menuData";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -29,12 +30,12 @@ const Footer = () => {
             <nav className="mb-10 list-none ">
               {companyLinks.map((link) => (
                 <li key={link.name} className="py-2 text-sm sm:text-[17px]">
-                  <a
+                  <Link
                     href={link.href}
                     className="text-gray-600 hover:text-gray-800"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </nav>
@@ -46,12 +47,12 @@ const Footer = () => {
             <nav className="mb-10 list-none">
               {legalLinks.map((link) => (
                 <li key={link.name} className="py-2 text-sm sm:text-[17px]">
-                  <a
+                  <Link
                     href={link.href}
                     className="text-gray-600 hover:text-gray-800"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </nav>
@@ -63,13 +64,13 @@ const Footer = () => {
             <nav className="mb-10 list-none">
               <span className="inline-flex justify-start mt-2 sm:mt-0 gap-x-3 ">
                 {socialLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.name}
                     href={link.href}
                     className="text-gray-500 "
                   >
                     {link.icon}
-                  </a>
+                  </Link>
                 ))}
               </span>
             </nav>

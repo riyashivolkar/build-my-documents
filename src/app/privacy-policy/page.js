@@ -2,13 +2,13 @@ import React from "react";
 
 const TermsConditions = () => {
   return (
-    <section class="text-gray-600 body-font p-8">
-      <div class="container px-5 py-14 mx-auto bg-white">
-        <div class="flex flex-col text-start w-full p-4 mb-20">
-          <h1 class=" text-4xl font-medium title-font mb-4  text-[rgb(247,148,29)] ">
+    <section className="p-5 text-gray-600 sm:p-8 body-font">
+      <div className="container px-5 py-4 mx-auto bg-white sm:py-14">
+        <div className="flex flex-col w-full p-4 mb-20 text-start">
+          <h1 className=" sm:text-4xl text-xl font-medium title-font mb-4  text-[rgb(247,148,29)] ">
             Privacy Policy
           </h1>
-          <p className="text-xl ">
+          <p className="text-md ">
             Build My Documents recognizes the importance of user privacy and is
             committed to maintaining the confidentiality of information provided
             by its users.
@@ -31,7 +31,7 @@ const TermsConditions = () => {
             This notice is readily available on our website.
           </p>
           <br />
-          <p className="text-xl ">
+          <p className="text-md ">
             <strong>Information Collected</strong>
             <br />
             We may collect various types of information through both automated
@@ -49,7 +49,7 @@ const TermsConditions = () => {
             will appear in your browser when transferring personal information.
           </p>
           <br />
-          <p className="text-xl ">
+          <p className="text-md ">
             <strong>Disclosing Information</strong>
             <br />
             We do not disclose any personal information obtained about you from
@@ -65,7 +65,7 @@ const TermsConditions = () => {
             representations about the practices and policies of these companies.
           </p>
           <br />
-          <p className="text-xl ">
+          <p className="text-md ">
             <strong>Changes to this Policy</strong>
             <br />
             Any changes to our Privacy Policy will be posted here and will

@@ -2,28 +2,28 @@ import React from "react";
 
 const Page = () => {
   return (
-    <section className="p-8 text-gray-600 body-font">
-      <div className="container px-5 mx-auto bg-white py-14">
+    <section className="p-5 text-gray-600 sm:p-8 body-font">
+      <div className="container px-5 py-4 mx-auto bg-white sm:py-14">
         <div className="flex flex-col w-full p-4 mb-20 text-start">
-          <h1 className="mb-4 text-4xl font-medium text-[rgb(247,148,29)] title-font">
+          <h1 className="mb-4 sm:text-4xl text-xl  font-medium text-[rgb(247,148,29)] title-font">
             About Us
           </h1>
-          <p className="text-xl ">
+          <p className="text-md ">
             Welcome to Build My Documentsyour trusted partner for hassle-free
             document solutions!
           </p>
-          <p className="text-xl ">
+          <p className="text-md ">
             At Build My Documents, we understand the challenges involved in
             securing essential documents such as passports, senior citizen
             cards. Our mission is to simplify these processes, ensuring a smooth
             and efficient experience for you.
           </p>
           <br />
-          <p className="text-xl ">
+          <p className="text-md ">
             <strong>Why Choose Build My Documents?</strong>
           </p>
           <br />
-          <ul className="pl-5 text-xl list-none list-inside">
+          <ul className="pl-5 list-none list-inside text-md">
             <li>
               <strong>Expert Guidance:</strong> Our team consists of
               knowledgeable professionals skilled in document processing. We
@@ -61,28 +61,28 @@ const Page = () => {
             <br />
           </ul>
 
-          <p className="text-xl ">
+          <p className="text-md ">
             Choose Build My Documents for a hassle-free and efficient experience
             in obtaining your essential documents. Let us be your trusted
             partner on your journey to a document-ready future!
           </p>
           <br />
-          <p className="text-3xl text-[rgb(247,148,29)] ">
+          <p className="sm:text-3xl text-xl text-[rgb(247,148,29)] ">
             <strong>Mission</strong>
           </p>
           <br />
-          <p className="text-xl ">
+          <p className="text-md ">
             Our mission is to empower individuals by providing seamless and
             expedited services for document procurement. We strive to eliminate
             the stress and confusion often associated with government paperwork,
             allowing you to focus on what matters most.
           </p>
           <br />
-          <p className="text-3xl text-[rgb(247,148,29)] ">
+          <p className="sm:text-3xl text-xl text-[rgb(247,148,29)] ">
             <strong>Vision</strong>
           </p>
           <br />
-          <p className="text-xl ">
+          <p className="text-md ">
             To create a better everyday life for many people. Our business idea
             supports this vision by offering a wide range of document services
             at prices so low that as many people as possible will be able to

@@ -7,9 +7,13 @@ const BackButton = () => {
 
   const handleBack = () => {
     if (window.history.length > 1) {
-      router.back(); // Go back if history exists
+      router.back();
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
     } else {
-      router.push("/"); // Redirect to homepage if no history
+      router.push("/");
+      window.scrollTo(0, 0);
     }
   };
 
@@ -22,7 +26,6 @@ const BackButton = () => {
             alt="Go back"
             className="object-cover w-10 h-10"
           />
-          <h1></h1>
         </button>
       </div>
     </div>

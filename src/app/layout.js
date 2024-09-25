@@ -1,13 +1,12 @@
-// src/app/layout.js
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import ConditionalWrapper from "./utils/ConditionalWrapper";
-import BackButton from "./components/BackButton";
 import { PageProvider, usePageContext } from "./utils/context/PageContext";
 import ConditionalBackButton from "./utils/ConditionalBackButton";
+import ScrollToTop from "./utils/ScrollToTop";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +37,7 @@ export default function RootLayout({ children }) {
             <Hero />
           </ConditionalWrapper>
           <ConditionalBackButton />
+          <ScrollToTop />
           <main>{children}</main>
           <Footer />
         </PageProvider>

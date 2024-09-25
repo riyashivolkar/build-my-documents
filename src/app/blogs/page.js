@@ -2,10 +2,10 @@ import React from "react";
 
 const page = () => {
   return (
-    <section class="text-gray-600 body-font p-8">
-      <div class="container px-5 py-14 mx-auto bg-white">
-        <div class="flex flex-col text-start w-full p-4 mb-20">
-          <h1 class=" text-4xl font-medium title-font mb-4  text-[rgb(247,148,29)] ">
+    <section className="p-8 text-gray-600 body-font">
+      <div className="container px-5 mx-auto bg-white py-14">
+        <div className="flex flex-col w-full p-4 mb-20 text-start">
+          <h1 className=" text-4xl font-medium title-font mb-4  text-[rgb(247,148,29)] ">
             Blogs
           </h1>
           <p className="text-xl ">
