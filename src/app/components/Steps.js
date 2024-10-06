@@ -2,7 +2,7 @@ import React from "react";
 
 const Working = () => {
   return (
-    <section className="w-full py-8 mx-4 bg-gray-200 mt-76 sm:mt-48 sm:py-20 sm:mx-0">
+    <section className="w-full py-8 mx-4 bg-gray-200 mt-82 sm:mt-48 sm:py-20 sm:mx-0">
       <div className="container mx-auto text-center">
         <h2 className="p-4 mb-8 text-2xl font-semibold text-gray-800 sm:p-0 sm:text-4xl md:text-5xl">
           How It Works
