@@ -7,6 +7,7 @@ import ConditionalWrapper from "./utils/ConditionalWrapper";
 import { PageProvider, usePageContext } from "./utils/context/PageContext";
 import ConditionalBackButton from "./utils/ConditionalBackButton";
 import ScrollToTop from "./utils/ScrollToTop";
+import Steps from "./components/Steps";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +29,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://sdk.cashfree.com/js/v3/cashfree.js" async></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased bg-gray-200`}
       >
@@ -39,6 +43,7 @@ export default function RootLayout({ children }) {
           <ConditionalBackButton />
           <ScrollToTop />
           <main>{children}</main>
+
           <Footer />
         </PageProvider>
       </body>

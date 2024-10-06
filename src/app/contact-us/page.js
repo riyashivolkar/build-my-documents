@@ -36,7 +36,7 @@ const page = () => {
                   EMAIL
                 </h2>
                 <a className="text-xs leading-relaxed text-orange-400">
-                  buildmydocuments@email.com
+                  buildmydocuments@gmail.com
                 </a>
                 <h2 className="mt-4 text-xs font-semibold tracking-widest text-gray-900 uppercase title-font">
                   Business Hours

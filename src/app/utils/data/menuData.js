@@ -250,3 +250,14 @@ export const formData = {
     "Nature of business details",
   ],
 };
+
+export const servicePrices = {
+  senior: 500, // Price for Senior Citizen Card
+  shops: 1000, // Price for Shops and Establishment Act
+  ration: 200, // Price for Ration Card
+  passport: 1500,
+  food: 800,
+  marraige: 800,
+  birth: 800,
+  death: 899,
+};

@@ -1,8 +1,7 @@
-"use client";
-
+// Assuming your form component file is src/app/components/Form.js
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { formData } from "../utils/data/menuData";
+import { formData, servicePrices } from "../utils/data/menuData"; // Import servicePrices
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../../firebase/firebaseConfig";
@@ -20,15 +19,13 @@ const Form = () => {
   });
 
   const [errors, setErrors] = useState({});
-  const [progress, setProgress] = useState([]); // Progress tracking for file uploads
+  const [progress, setProgress] = useState([]);
 
-  // Handle form input change
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Restrict phone input to exactly 10 digits
     if (name === "phone") {
-      const phoneValue = value.replace(/\D/g, ""); // Remove non-numeric characters
+      const phoneValue = value.replace(/\D/g, "");
       if (phoneValue.length <= 10) {
         setFormState((prevState) => ({
           ...prevState,
@@ -43,7 +40,6 @@ const Form = () => {
     }
   };
 
-  // Handle file selection and add to formState
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
     setFormState((prevState) => ({
@@ -51,11 +47,9 @@ const Form = () => {
       documents: [...prevState.documents, ...files],
     }));
 
-    // Reset the progress tracking
     setProgress(Array(files.length).fill(0));
   };
 
-  // Set service from search params
   useEffect(() => {
     if (service) {
       setFormState((prevState) => ({
@@ -65,19 +59,16 @@ const Form = () => {
     }
   }, [service]);
 
-  // Validation logic
   const validateForm = () => {
     let formErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validate Name
     if (!formState.name.trim()) {
       formErrors.name = "Name is required";
     } else if (formState.name.length <= 4) {
       formErrors.name = "Name must be more than 4 characters";
     }
 
-    // Validate Email
     if (!formState.email) {
       formErrors.email = "Email is required";
     } else if (!emailRegex.test(formState.email)) {
@@ -135,13 +126,14 @@ const Form = () => {
       try {
         const uploadedFilesURLs = await uploadFiles(formState.documents);
 
-        // Add form data to Firestore
+        // Add form data to Firestore with createdAt timestamp
         const docRef = await addDoc(collection(db, "formSubmissions"), {
           name: formState.name,
           email: formState.email,
           phone: formState.phone,
           documents: uploadedFilesURLs,
           service: formState.service,
+          createdAt: new Date(), // Add createdAt field
         });
 
         console.log(
@@ -160,6 +152,8 @@ const Form = () => {
 
         // Optionally, clear the file input progress as well
         setProgress([]);
+
+        // Here, you can add any further actions you want to take after submission.
       } catch (error) {
         console.error("Error submitting form: ", error.message);
       }
@@ -222,11 +216,10 @@ const Form = () => {
               required
             />
             {errors.name && (
-              <p className="text-xs italic text-red-500">{errors.name}</p>
+              <p className="mt-1 text-xs italic text-red-500">{errors.name}</p>
             )}
           </div>
-
-          <div className="px-3 md:w-1/2">
+          <div className="px-3 mb-6 md:w-1/2 md:mb-0">
             <label
               className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
               htmlFor="email"
@@ -240,24 +233,23 @@ const Form = () => {
               id="email"
               name="email"
               type="email"
-              placeholder="johndoe@example.com"
+              placeholder="john@example.com"
               value={formState.email}
               onChange={handleChange}
               required
             />
             {errors.email && (
-              <p className="text-xs italic text-red-500">{errors.email}</p>
+              <p className="mt-1 text-xs italic text-red-500">{errors.email}</p>
             )}
           </div>
         </div>
-
         <div className="mb-6 -mx-3 md:flex">
-          <div className="px-3 md:w-1/2">
+          <div className="px-3 mb-6 md:w-1/2 md:mb-0">
             <label
               className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
               htmlFor="phone"
             >
-              Phone Number (+91) <span className="text-red-500">*</span>
+              Phone Number (+91) <span className="text-red-500">*</span>{" "}
             </label>
             <input
               className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
@@ -265,24 +257,23 @@ const Form = () => {
               } rounded py-3 px-4`}
               id="phone"
               name="phone"
-              type="text"
+              type="tel"
               placeholder="Enter 10 digit phone number"
               value={formState.phone}
               onChange={handleChange}
               required
             />
             {errors.phone && (
-              <p className="text-xs italic text-red-500">{errors.phone}</p>
+              <p className="mt-1 text-xs italic text-red-500">{errors.phone}</p>
             )}
           </div>
-          <div className="px-3 pt-4 mb-6 -mx-3 sm:pt-0 md:w-1/2">
+          <div className="px-3 mb-6 md:w-1/2 md:mb-0">
             <label
               className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
               htmlFor="documents"
             >
-              Upload Documents
+              Upload Documents <span className="text-red-500">*</span>
             </label>
-
             <input
               className="block w-full px-4 py-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-grey-lighter"
               id="documents"
@@ -302,14 +293,15 @@ const Form = () => {
             )}
           </div>
         </div>
-
-        <div className="px-3">
-          <button
-            className="px-4 py-2 font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600"
-            type="submit"
-          >
-            Submit
-          </button>
+        <div className="mb-6 -mx-3">
+          <div className="px-3">
+            <button
+              className="px-4 py-2 font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>

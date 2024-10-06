@@ -154,7 +154,7 @@ const Page = () => {
                   <br />
                   Rs. 2,499 For (Normal Application)
                   <br />
-                  Rs. 4,199 For (Tatkal Application)
+                  {/* Rs. 4,199 For (Tatkal Application) */}
                 </p>
               </div>
             </li>

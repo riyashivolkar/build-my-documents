@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Menu from "./Menu";
-import Working from "./Working";
+import Steps from "./Steps";
 import Footer from "./Footer";
 
 const Hero = () => {
@@ -19,13 +19,13 @@ const Hero = () => {
         <a className="absolute inset-0 cursor-pointer" href="/">
           <Image
             src="/doc.jpg"
-            alt="Documents"
-            layout="fill"
-            className="object-cover w-full h-full cursor-pointer"
+            alt="Description of the image"
+            fill
+            style={{ objectFit: "cover" }}
           />
         </a>
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-        <div className="container relative z-10 px-4 mx-auto text-center text-white">
+        <div className="container relative z-10 p-5 px-4 mx-auto text-center text-white">
           <h1 className="text-2xl sm:text-4xl md:text-5xl py-2 sm:py-0 font-medium mb-4 sm:mb-6 lg:mb-8 text-[#f7941d]">
             Online Documents Consultancy.
           </h1>
@@ -35,9 +35,6 @@ const Hero = () => {
           </p>
           <Menu />
         </div>
-
-        <Working />
-        <Footer />
       </section>
     </div>
   );
