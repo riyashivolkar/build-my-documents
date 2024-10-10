@@ -1,10 +1,8 @@
-"use client"; // Ensure this is a client component
+"use client";
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Menu from "./Menu";
-import Steps from "./Steps";
-import Footer from "./Footer";
 
 const Hero = () => {
   const { pathname } = useRouter();

@@ -31,6 +31,20 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <script src="https://sdk.cashfree.com/js/v3/cashfree.js" async></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16735233208"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16735233208');
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased bg-gray-200`}
