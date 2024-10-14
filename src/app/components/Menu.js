@@ -13,7 +13,7 @@ const Menu = () => {
                   <div className="inline-flex items-center justify-center w-24 h-24 mb-3 text-indigo-500 bg-gray-100 rounded-full">
                     {item.icon}
                   </div>
-                  <h2 className="font-serif text-base text-gray-900 sm:text-lg">
+                  <h2 className="font-serif text-sm text-gray-900 sm:text-lg">
                     {item.title}
                   </h2>
                 </div>

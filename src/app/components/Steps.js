@@ -5,7 +5,7 @@ const Working = () => {
         <h2 className="mb-4 font-serif text-3xl leading-snug text-gray-800 sm:text-4xl md:text-5xl">
           How It Works
         </h2>
-        <p className="max-w-2xl mx-auto mb-12 text-lg text-gray-600">
+        <p className="max-w-2xl mx-auto mb-12 text-base text-gray-600 sm:text-lg">
           We have simplified the process into three easy steps. Follow along to
           get your documents ready in no time!
         </p>

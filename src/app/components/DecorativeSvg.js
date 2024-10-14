@@ -1,8 +1,11 @@
 const DecorativeSvg = ({ position, color }) => {
+  const colorClass =
+    color === "green-500" ? "text-green-500" : "text-orange-500";
+
   return (
     <svg
       viewBox="0 0 91 91"
-      className={`absolute ${position} z-0 w-32 h-32 text-${color} fill-current`}
+      className={`absolute ${position} z-0 w-32 h-32 ${colorClass} fill-current`}
     >
       <g stroke="none" strokeWidth="1" fillRule="evenodd">
         <g fillRule="nonzero">
