@@ -7,7 +7,6 @@ import ConditionalWrapper from "./utils/ConditionalWrapper";
 import { PageProvider, usePageContext } from "./utils/context/PageContext";
 import ConditionalBackButton from "./utils/ConditionalBackButton";
 import ScrollToTop from "./utils/ScrollToTop";
-import Steps from "./components/Steps";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,6 +23,21 @@ export const metadata = {
   title: "Build My Documents",
   description:
     "Leave the paperwork to us hassle-free documentation made simple!",
+  openGraph: {
+    title: "Build My Documents",
+    description:
+      "Leave the paperwork to us hassle-free documentation made simple!",
+    url: "https://www.buildmydocuments.com/",
+    siteName: "Build My Documents",
+    images: [
+      {
+        url: "/logo1.png",
+        width: 800,
+        height: 600,
+        alt: "Build My Documents Logo",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -47,7 +61,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased bg-gray-200`}
+        className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden antialiased bg-white`}
       >
         <PageProvider>
           <Header />

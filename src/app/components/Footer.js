@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
           <div className="w-full px-4 lg:w-1/3 md:w-1/2">
-            <h2 className="mb-3 text-sm sm:text-[19px] font-medium tracking-widest text-gray-900 title-font">
+            <h2 className="mb-3 text-sm sm:text-[19px] font-medium tracking-widest text-gray-900 title-font font-serif">
               COMPANY
             </h2>
             <nav className="mb-10 list-none ">
@@ -41,7 +41,7 @@ const Footer = () => {
             </nav>
           </div>
           <div className="w-full px-4 lg:w-1/3 md:w-1/2">
-            <h2 className="mb-3 text-sm sm:text-[19px]  font-medium tracking-widest text-gray-900 title-font">
+            <h2 className="mb-3 font-serif text-sm sm:text-[19px]  font-medium tracking-widest text-gray-900 title-font">
               LEGAL
             </h2>
             <nav className="mb-10 list-none">
@@ -58,7 +58,7 @@ const Footer = () => {
             </nav>
           </div>
           <div className="w-full px-4 lg:w-1/3 md:w-1/2">
-            <h2 className="mb-3 text-sm sm:text-[19px]  font-medium tracking-widest text-gray-900 title-font">
+            <h2 className="mb-3 font-serif text-sm sm:text-[19px]  font-medium tracking-widest text-gray-900 title-font">
               FOLLOW US
             </h2>
             <nav className="mb-10 list-none">

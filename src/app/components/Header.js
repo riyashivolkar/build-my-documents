@@ -48,7 +48,7 @@ const Header = () => {
               <Link
                 key={index}
                 href={item.path}
-                className="mr-8 cursor-pointer hover:text-[#f7941d]"
+                className="mr-8 font-serif cursor-pointer hover:text-[#f7941d]"
               >
                 {item.name}
               </Link>

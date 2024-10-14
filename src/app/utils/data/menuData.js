@@ -5,7 +5,7 @@ const menuData = [
     path: "/birth-certificate",
     icon: (
       <img
-        src="/menuImg/41.svg"
+        src="/menuImg/birth.svg"
         alt="Birth Certificate Icon"
         className="w-500 h-500"
       />
@@ -76,6 +76,18 @@ const menuData = [
   },
   {
     id: 7,
+    title: "Food License (FSSAI)",
+    path: "/food-license",
+    icon: (
+      <img
+        src="/menuImg/food.svg"
+        alt="Food License (FSSAI) Icon"
+        className="w-500 h-500"
+      />
+    ),
+  },
+  {
+    id: 8,
     title: "Passport",
     path: "/passport",
 
@@ -87,14 +99,41 @@ const menuData = [
       />
     ),
   },
+
   {
-    id: 8,
-    title: "Food License (FSSAI)",
-    path: "/food-license",
+    id: 9,
+    title: "Travel Visa",
+    path: "/travel-visa",
+    icon: (
+      <img src="/menuImg/visa.svg" alt="Travel Visa" className="w-500 h-500" />
+    ),
+  },
+  {
+    id: 10,
+    title: "Pan Card",
+    path: "/pan-card",
     icon: (
       <img
-        src="/menuImg/food.svg"
-        alt="Food License (FSSAI) Icon"
+        src="/menuImg/pancard.svg"
+        alt="Pan Card Icon"
+        className="w-500 h-500"
+      />
+    ),
+  },
+  {
+    id: 11,
+    title: "GST",
+    path: "/gst",
+    icon: <img src="/menuImg/gst.svg" alt="GST Icon" className="w-500 h-500" />,
+  },
+  {
+    id: 12,
+    title: "MSME Certificate",
+    path: "/msme-certificate",
+    icon: (
+      <img
+        src="/menuImg/msme.svg"
+        alt="MSME Certificate Icon"
         className="w-500 h-500"
       />
     ),
@@ -248,6 +287,21 @@ export const formData = {
     "Passport-sized photo (1)",
     "FSSAI declaration form",
     "Nature of business details",
+  ],
+  gst: [
+    "Aadhaar card",
+    "PAN card",
+    "Bank Account Proof",
+
+    "One Passport Size Photo",
+    " Electricity Bill from Owner",
+    "Rent Agreement",
+    "NOC (No Objection Certificate)",
+  ],
+  msme: ["Aadhaar card", "PAN card"],
+  panCard: [
+    "Aadhaar card ",
+    "Existing PAN copy (Correction/Lost/damage Pan Card)",
   ],
 };
 

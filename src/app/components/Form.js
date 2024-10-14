@@ -188,7 +188,7 @@ const Form = () => {
               </div>
             ))}
           </div>
-          <p className="py-2 text-xs text-gray-500 sm:text-base">
+          <p className="py-2 text-xs text-orange-500 sm:text-base">
             Note: Upload whatever documents you have right now. Please prepare
             the rest for later.
           </p>
