@@ -55,7 +55,7 @@ const LeadsForm = () => {
 
   return (
     <div>
-      <div className="relative mt-[860px] bg-white sm:mt-44 ">
+      <div className="relative mt-[800px] bg-white sm:mt-44 ">
         <div className="flex flex-col items-center justify-between pt-0 pb-0 pl-10 pr-10 mt-0 mb-0 ml-auto mr-auto max-w-7xl xl:px-5 lg:flex-row">
           <div className="flex flex-col items-center w-full pt-5 pb-20 pl-10 pr-10 lg:pt-20 ">
             <div className="relative z-0 w-full max-w-2xl mt-20 mb-0 ml-0 mr-0 lg:mt-0 lg:w-5/12">
@@ -109,7 +109,7 @@ const LeadsForm = () => {
                       }
                       placeholder="Phone Number"
                       type="tel"
-                      className="block pt-4 pb-4 pl-4 pr-4 mt-2 mb-0 ml-0 mr-0 text-sm text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md sm:text-basew-full focus:outline-none focus:border-black"
+                      className="block w-full pt-4 pb-4 pl-4 pr-4 mt-2 mb-0 ml-0 mr-0 text-sm placeholder-gray-400 bg-white border border-gray-300 rounded-md sm:text-base focus:outline-none focus:border-black"
                       pattern="[0-9]*"
                       required
                     />
@@ -120,7 +120,7 @@ const LeadsForm = () => {
                       Service
                     </p>
                     <select
-                      className="block w-full pt-4 pb-4 pl-4 pr-4 mt-2 mb-0 ml-0 mr-0 text-sm text-base placeholder-gray-400 bg-white border border-gray-300 rounded-md sm:text-base focus:outline-none focus:border-black"
+                      className="block w-full pt-4 pb-4 pl-4 pr-4 mt-2 mb-0 ml-0 mr-0 text-sm placeholder-gray-400 bg-white border border-gray-300 rounded-md sm:text-base focus:outline-none focus:border-black"
                       value={selectedOption}
                       onChange={(e) => setSelectedOption(e.target.value)}
                     >
