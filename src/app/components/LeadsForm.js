@@ -55,12 +55,12 @@ const LeadsForm = () => {
 
   return (
     <div>
-      <div className="relative mt-[900px] bg-white sm:mt-44 ">
+      <div className="relative mt-[860px] bg-white sm:mt-44 ">
         <div className="flex flex-col items-center justify-between pt-0 pb-0 pl-10 pr-10 mt-0 mb-0 ml-auto mr-auto max-w-7xl xl:px-5 lg:flex-row">
           <div className="flex flex-col items-center w-full pt-5 pb-20 pl-10 pr-10 lg:pt-20 ">
             <div className="relative z-0 w-full max-w-2xl mt-20 mb-0 ml-0 mr-0 lg:mt-0 lg:w-5/12">
               <div className="relative z-10 flex flex-col items-start justify-start pt-10 pb-10 pl-10 pr-10 bg-white shadow-2xl rounded-xl">
-                <p className="w-full font-serif text-3xl font-medium leading-snug text-center sm:text-4xl">
+                <p className="w-full font-serif text-2xl font-medium leading-snug text-center sm:text-4xl">
                   Sign up for the service
                 </p>
                 <form
