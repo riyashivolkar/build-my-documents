@@ -6,11 +6,13 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../../firebase/firebaseConfig";
 import Loading from "./Loading";
 import { v4 as uuidv4 } from "uuid"; // Import UUID generator
+import { usePayment } from "../utils/hooks/usePayment";
 
 const Form = () => {
   const [isLoading, setIsLoading] = useState(false); // Add loading state
   const searchParams = useSearchParams();
   const service = searchParams.get("service");
+  const { sendPaymentData } = usePayment(); // Use the custom hook
 
   const [formState, setFormState] = useState({
     name: "",
@@ -121,26 +123,36 @@ const Form = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      setIsLoading(true); // Set loading to true when form submission starts
+      setIsLoading(true);
 
       try {
         const uploadedFilesURLs = await uploadFiles(formState.documents);
-
-        const orderId = uuidv4(); // Generate a unique client ID (UUID)
+        const orderId = uuidv4();
 
         // Store form data along with the clientId in Firestore
         await addDoc(collection(db, "formSubmissions"), {
-          orderId, // Store the generated UUID
+          orderId,
           name: formState.name,
           email: formState.email,
           phone: formState.phone,
           service: formState.service,
           documents: uploadedFilesURLs,
-          taskStatus: "New", // Initial task status
+          taskStatus: "New",
           createdAt: new Date(),
         });
 
-        // Redirect to the payment form with the clientId in the URL
+        // **Send Payment Data to Webhook**
+        const payload = {
+          orderId,
+          name: formState.name,
+          service: formState.service,
+          documents: uploadedFilesURLs,
+        };
+
+        // Call the webhook
+        await sendPaymentData(payload);
+
+        // Redirect to payment page
         if (formState.service === "birth") {
           window.location.href = `https://payments.cashfree.com/forms/birth--certificate?orderId=${orderId}`;
         } else if (formState.service === "death") {
@@ -149,7 +161,7 @@ const Form = () => {
       } catch (error) {
         console.error("Error submitting form: ", error.message);
       } finally {
-        setIsLoading(false); // Set loading to false once form is submitted
+        setIsLoading(false);
       }
     }
   };
