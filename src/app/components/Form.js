@@ -1,12 +1,14 @@
-// Assuming your form component file is src/app/components/Form.js
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { formData, servicePrices } from "../utils/data/menuData"; // Import servicePrices
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../../firebase/firebaseConfig";
+import Loading from "./Loading";
+import { v4 as uuidv4 } from "uuid"; // Import UUID generator
 
 const Form = () => {
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
   const searchParams = useSearchParams();
   const service = searchParams.get("service");
 
@@ -75,7 +77,6 @@ const Form = () => {
       formErrors.email = "Invalid email format";
     }
 
-    // Validate Phone - exactly 10 digits
     if (!formState.phone) {
       formErrors.phone = "Phone number is required";
     } else if (formState.phone.length !== 10) {
@@ -86,7 +87,6 @@ const Form = () => {
     return Object.keys(formErrors).length === 0;
   };
 
-  // Upload files to Firebase and return download URLs
   const uploadFiles = async (files) => {
     const fileUploadPromises = files.map((file, index) => {
       const storageRef = ref(storage, `documents/${file.name}`);
@@ -99,7 +99,6 @@ const Form = () => {
             const progressPercent =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 
-            // Update individual progress
             setProgress((prevProgress) => {
               const updatedProgress = [...prevProgress];
               updatedProgress[index] = progressPercent;
@@ -118,44 +117,39 @@ const Form = () => {
     return Promise.all(fileUploadPromises);
   };
 
-  // Handle form submission
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (validateForm()) {
+      setIsLoading(true); // Set loading to true when form submission starts
+
       try {
         const uploadedFilesURLs = await uploadFiles(formState.documents);
 
-        // Add form data to Firestore with createdAt timestamp
-        const docRef = await addDoc(collection(db, "formSubmissions"), {
+        const orderId = uuidv4(); // Generate a unique client ID (UUID)
+
+        // Store form data along with the clientId in Firestore
+        await addDoc(collection(db, "formSubmissions"), {
+          orderId, // Store the generated UUID
           name: formState.name,
           email: formState.email,
           phone: formState.phone,
-          documents: uploadedFilesURLs,
           service: formState.service,
-          createdAt: new Date(), // Add createdAt field
+          documents: uploadedFilesURLs,
+          taskStatus: "New", // Initial task status
+          createdAt: new Date(),
         });
 
-        console.log(
-          "Form data successfully submitted! Document ID:",
-          docRef.id
-        );
-
-        // Clear the form inputs by resetting formState to initial values
-        setFormState({
-          name: "",
-          email: "",
-          phone: "",
-          documents: [],
-          service: formState.service, // Keep the service as it might be set by the URL params
-        });
-
-        // Optionally, clear the file input progress as well
-        setProgress([]);
-
-        // Here, you can add any further actions you want to take after submission.
+        // Redirect to the payment form with the clientId in the URL
+        if (formState.service === "birth") {
+          window.location.href = `https://payments.cashfree.com/forms/birth--certificate?orderId=${orderId}`;
+        } else if (formState.service === "death") {
+          window.location.href = `https://payments.cashfree.com/forms/death--certificate?orderId=${orderId}`;
+        }
       } catch (error) {
         console.error("Error submitting form: ", error.message);
+      } finally {
+        setIsLoading(false); // Set loading to false once form is submitted
       }
     }
   };
@@ -180,6 +174,7 @@ const Form = () => {
                   service.charAt(0).toUpperCase() + service.slice(1)
                 } Certificate`}
           </h2>
+          {isLoading && <Loading />}
           <div className="my-2 text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (
               <div key={index} className="my-2 ">
@@ -194,116 +189,124 @@ const Form = () => {
           </p>
         </div>
       )}
-      <form onSubmit={handleSubmit} className="w-full p-12">
-        <div className="mb-6 -mx-3 md:flex">
-          <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-            <label
-              className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-              htmlFor="name"
-            >
-              Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
-                errors.name ? "border-red-500" : "border-grey-lighter"
-              } rounded py-3 px-4`}
-              id="name"
-              name="name"
-              type="text"
-              placeholder="John Doe"
-              value={formState.name}
-              onChange={handleChange}
-              required
-            />
-            {errors.name && (
-              <p className="mt-1 text-xs italic text-red-500">{errors.name}</p>
-            )}
+      {!isLoading && (
+        <form onSubmit={handleSubmit} className="w-full p-12">
+          <div className="mb-6 -mx-3 md:flex">
+            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+              <label
+                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                htmlFor="name"
+              >
+                Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
+                  errors.name ? "border-red-500" : "border-grey-lighter"
+                } rounded py-3 px-4`}
+                id="name"
+                name="name"
+                type="text"
+                placeholder="John Doe"
+                value={formState.name}
+                onChange={handleChange}
+                required
+              />
+              {errors.name && (
+                <p className="mt-1 text-xs italic text-red-500">
+                  {errors.name}
+                </p>
+              )}
+            </div>
+            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+              <label
+                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                htmlFor="email"
+              >
+                Email <span className="text-red-500">*</span>
+              </label>
+              <input
+                className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
+                  errors.email ? "border-red-500" : "border-grey-lighter"
+                } rounded py-3 px-4`}
+                id="email"
+                name="email"
+                type="email"
+                placeholder="john@example.com"
+                value={formState.email}
+                onChange={handleChange}
+                required
+              />
+              {errors.email && (
+                <p className="mt-1 text-xs italic text-red-500">
+                  {errors.email}
+                </p>
+              )}
+            </div>
           </div>
-          <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-            <label
-              className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-              htmlFor="email"
-            >
-              Email <span className="text-red-500">*</span>
-            </label>
-            <input
-              className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
-                errors.email ? "border-red-500" : "border-grey-lighter"
-              } rounded py-3 px-4`}
-              id="email"
-              name="email"
-              type="email"
-              placeholder="john@example.com"
-              value={formState.email}
-              onChange={handleChange}
-              required
-            />
-            {errors.email && (
-              <p className="mt-1 text-xs italic text-red-500">{errors.email}</p>
-            )}
+          <div className="mb-6 -mx-3 md:flex">
+            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+              <label
+                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                htmlFor="phone"
+              >
+                Phone Number (+91) <span className="text-red-500">*</span>{" "}
+              </label>
+              <input
+                className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
+                  errors.phone ? "border-red-500" : "border-grey-lighter"
+                } rounded py-3 px-4`}
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="Enter 10 digit phone number"
+                value={formState.phone}
+                onChange={handleChange}
+                required
+              />
+              {errors.phone && (
+                <p className="mt-1 text-xs italic text-red-500">
+                  {errors.phone}
+                </p>
+              )}
+            </div>
+            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+              <label
+                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                htmlFor="documents"
+              >
+                Upload Documents <span className="text-red-500">*</span>
+              </label>
+              <input
+                className="block w-full px-4 py-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-grey-lighter"
+                id="documents"
+                name="documents"
+                type="file"
+                multiple
+                onChange={handleFileChange}
+              />
+              {progress.length > 0 && (
+                <div>
+                  {progress.map((prog, index) => (
+                    <p key={index}>
+                      Upload Progress for file {index + 1}: {prog.toFixed(2)}%
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="mb-6 -mx-3 md:flex">
-          <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-            <label
-              className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-              htmlFor="phone"
-            >
-              Phone Number (+91) <span className="text-red-500">*</span>{" "}
-            </label>
-            <input
-              className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
-                errors.phone ? "border-red-500" : "border-grey-lighter"
-              } rounded py-3 px-4`}
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="Enter 10 digit phone number"
-              value={formState.phone}
-              onChange={handleChange}
-              required
-            />
-            {errors.phone && (
-              <p className="mt-1 text-xs italic text-red-500">{errors.phone}</p>
-            )}
+          <div className="mb-6 -mx-3">
+            <div className="px-3">
+              <button
+                className="px-4 py-2 font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
           </div>
-          <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-            <label
-              className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-              htmlFor="documents"
-            >
-              Upload Documents <span className="text-red-500">*</span>
-            </label>
-            <input
-              className="block w-full px-4 py-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-grey-lighter"
-              id="documents"
-              name="documents"
-              type="file"
-              multiple
-              onChange={handleFileChange}
-            />
-            {progress.length > 0 && (
-              <div>
-                {progress.map((prog, index) => (
-                  <p key={index}>
-                    Upload Progress for file {index + 1}: {prog.toFixed(2)}%
-                  </p>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="mb-6 -mx-3">
-          <div className="px-3">
-            <button
-              className="px-4 py-2 font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600"
-              type="submit"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      )}
     </div>
   );
 };

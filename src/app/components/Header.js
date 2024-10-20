@@ -54,29 +54,36 @@ const Header = () => {
               </Link>
             ) : null
           )}
+
+          {/* Sign Up Button with anchor link */}
+          <Link
+            href="/#leads-form" // Change this to the appropriate page where the leads form is
+            className="ml-4 px-4 py-2 text-white bg-[#f7941d] rounded hover:bg-orange-500 transition duration-200"
+          >
+            Sign Up
+          </Link>
         </nav>
       </div>
 
       {/* Mobile navigation menu */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 transition-transform duration-300 ease-in-out ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden`}
       >
-        <div className="relative flex flex-col items-center justify-center w-4/5 max-w-md p-8 mx-20 transition-all duration-500 transform rounded-lg shadow-xl bg-gradient-to-br from-white to-gray-100">
-          <div className="flex items-center justify-between w-full mb-6">
-            <h2 className="text-xl font-bold text-gray-800">Menu</h2>
+        <div className="relative flex flex-col items-center justify-center w-11/12 max-w-md p-8 mx-auto transition-all duration-500 transform rounded-lg shadow-xl bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400">
+          <div className="flex items-center justify-end w-full mb-4">
             <button
               onClick={handleMenuToggle}
-              className="text-gray-500 transition-opacity hover:text-gray-800"
+              className="text-gray-500 hover:text-gray-600"
               aria-label="Close menu"
             >
               <Image
                 src="/close.svg"
-                className="hover:text-orange-400"
                 alt="Close"
                 width={30}
                 height={30}
+                className="transition-transform duration-200 hover:scale-110"
               />
             </button>
           </div>
@@ -87,14 +94,27 @@ const Header = () => {
                 <Link
                   key={index}
                   href={item.path}
-                  className="w-full py-3 text-center text-black transition-all duration-300 transform bg-white rounded-lg shadow-md text-md hover:bg-orange-400 hover:text-white hover:shadow-lg hover:scale-105"
+                  className="w-full py-4 text-lg font-semibold text-center text-gray-600 transition-all duration-300 transform bg-white rounded-lg shadow-md hover:bg-orange-400 hover:text-white hover:shadow-lg hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ) : null
             )}
+
+            {/* Sign Up Button in mobile menu */}
+            <Link
+              href="/#leads-form" // Change this to the appropriate page where the leads form is
+              className="w-full py-4 text-center text-white bg-[#f7941d] rounded-lg shadow-md text-lg font-semibold transition-all duration-300 hover:bg-orange-500 hover:shadow-xl transform hover:scale-105"
+            >
+              Sign Up
+            </Link>
           </nav>
+
+          {/* Optional: Add a footer with some motivational text */}
+          <div className="mt-6 text-sm text-center text-gray-700">
+            <p>Join us today for a seamless experience!</p>
+          </div>
         </div>
       </div>
     </header>

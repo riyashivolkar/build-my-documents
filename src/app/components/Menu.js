@@ -4,7 +4,7 @@ import menuData from "../utils/data/menuData";
 const Menu = () => {
   return (
     <section className="text-gray-600 body-font">
-      <div className="container px-4 mx-auto bg-gray-200 rounded-lg py-14">
+      <div className="container px-4 mx-auto bg-gray-200 rounded-t-lg py-14">
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-6">
           {menuData.map((item) =>
             item.path ? (

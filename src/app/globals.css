@@ -2,8 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  zoom: 67%;
-  
-}
 
+/* globals.css */
+
+
+@layer utilities {
+    @keyframes wait {
+      0% {
+        left: -7px;
+      }
+      30% {
+        left: 52px;
+      }
+      60% {
+        left: 22px;
+      }
+      100% {
+        left: 100px;
+      }
+    }
+  
+    .animate-wait1 {
+      animation: wait 4s infinite;
+      left: -28px;
+    }
+  
+    .animate-wait2 {
+      animation: wait 4s infinite 0.8s;
+      left: -21px;
+    }
+  }
+  

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Page = () => {
+const PanCard = () => {
   const selectedService = "panCard";
   return (
     <section className="p-8 text-gray-500 body-font">
@@ -122,4 +122,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default PanCard;
