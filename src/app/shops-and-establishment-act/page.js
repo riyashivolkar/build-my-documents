@@ -105,6 +105,13 @@ const Page = () => {
                 <p className="text-gray-500 text-md sm:text-2xl">
                   <br />
                   Rs. 890
+                  <br />
+                  <br />
+                  <span className="italic ">
+                    Booking fee payable upon online form submission for medium
+                    and large scale businesses. Shop and Establishment fees vary
+                    by state, depend on employee count.
+                  </span>
                 </p>
               </div>
             </li>

@@ -116,7 +116,7 @@ const Page = () => {
                 </h2>
                 <p className="text-gray-500 text-md sm:text-2xl ">
                   <br />
-                  Rs. 680
+                  Rs. 740
                   <br />
                 </p>
               </div>

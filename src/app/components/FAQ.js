@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div itemscope itemtype="https://schema.org/FAQPage" id="faq">
+    <div itemScope itemType="https://schema.org/FAQPage" id="faq">
       <div className="container px-4 py-10 mx-auto">
         <h1 className="mb-4 text-2xl font-bold text-center">Legal Services </h1>
         <ul className="grid gap-6" data-list="faq">
@@ -58,9 +58,9 @@ According to Section 2(c) of the Legal Services Authorities Act, 1987, “legal 
 const FaqRadioOption = ({ optionId, label, description, checked }) => (
   <li
     className="text-base sm:text-xl group"
-    itemscope
-    itemprop="mainEntity"
-    itemtype="https://schema.org/Question"
+    itemScope
+    itemProp="mainEntity"
+    itemType="https://schema.org/Question"
   >
     <input
       className="hidden peer/option-1"
@@ -72,7 +72,7 @@ const FaqRadioOption = ({ optionId, label, description, checked }) => (
     <label
       className="peer-checked/option-1:bg-slate-900 peer-checked/option-1:text-white peer-checked/option-1:[&>svg]:rotate-45 block cursor-pointer p-4 pr-12 font-bold border border-slate-900 rounded transition-all duration-150 ease-in-out relative"
       htmlFor={optionId}
-      itemprop="name"
+      itemProp="name"
     >
       {label}
       <svg
@@ -99,14 +99,14 @@ const FaqRadioOption = ({ optionId, label, description, checked }) => (
     </label>
     <div
       className="grid grid-rows-[0fr] transition-all duration-150 ease-in-out peer-checked/option-1:grid-rows-[1fr]"
-      itemscope
-      itemprop="acceptedAnswer"
-      itemtype="https://schema.org/Answer"
+      itemScope
+      itemProp="acceptedAnswer"
+      itemType="https://schema.org/Answer"
     >
       <div className="min-h-[0px] overflow-hidden">
         <div
           className="p-4 mt-2 border rounded border-slate-900"
-          itemprop="text"
+          itemProp="text"
         >
           {description}
         </div>

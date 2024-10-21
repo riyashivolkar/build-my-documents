@@ -17,7 +17,7 @@ const Working = () => {
             <img
               src="/s1.png"
               alt="Step 1 Icon"
-              className="object-contain w-64 h-64 mb-4"
+              className="object-contain mb-4 w-44 h-44 sm:w-64 sm:h-64"
             />
             <p className="text-gray-700 text-md">
               Choose the document service you need.
@@ -30,7 +30,7 @@ const Working = () => {
             <img
               src="/s2.png"
               alt="Step 2 Icon"
-              className="object-contain w-64 h-64 mb-4"
+              className="object-contain mb-4 w-44 h-44 sm:w-64 sm:h-64"
             />
             <p className="text-gray-700 text-md">
               Get end-to-end assistance from our experts.
@@ -43,7 +43,7 @@ const Working = () => {
             <img
               src="/s3.png"
               alt="Step 3 Icon"
-              className="object-contain w-64 h-64 mb-4"
+              className="object-contain mb-4 w-44 h-44 sm:w-64 sm:h-64"
             />
             <p className="text-gray-700 text-md">
               Your documents are ready. Sit back and relax!

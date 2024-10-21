@@ -16,9 +16,6 @@ const Page = () => {
           <p className="text-md sm:text-2xl">
             Eligibility: The applicant must be at least 60 years of age.
             <br />
-            <br />
-            Once approved, we will share a soft copy via email or WhatsApp. You
-            can then take a color printout and use it.
           </p>
           <br />
           <ul className="mt-8 space-y-6">
@@ -97,7 +94,7 @@ const Page = () => {
                 </h2>
                 <p className="text-gray-500 text-md sm:text-2xl">
                   <br />
-                  <strong>Rs. 400</strong>
+                  <strong>Rs. 440</strong>
                   <br />
                   If you decide to cancel your order after payment, please note
                   that a cancellation fee of <strong>Rs. 50</strong> will apply.

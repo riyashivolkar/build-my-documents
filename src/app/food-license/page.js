@@ -88,10 +88,8 @@ const Page = () => {
                 </h2>
                 <p className="text-gray-500 text-md sm:text-2xl">
                   <br />
-                  Rs. 1480
+                  Rs. 1690
                   <br />
-                  Rs. 99 as booking fee. Need to pay while submitting online
-                  form.
                 </p>
               </div>
             </li>

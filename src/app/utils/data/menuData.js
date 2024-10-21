@@ -312,13 +312,19 @@ export const formData = {
   ],
 };
 
-export const servicePrices = {
-  senior: 500, // Price for Senior Citizen Card
-  shops: 1000, // Price for Shops and Establishment Act
-  ration: 200, // Price for Ration Card
-  passport: 1500,
-  food: 800,
-  marraige: 800,
-  birth: 800,
-  death: 899,
+// menuData.js
+
+export const serviceUrls = {
+  birth: "https://payments.cashfree.com/forms/birth--certificate",
+  death: "https://payments.cashfree.com/forms/death--certificate",
+  senior: "https://payments.cashfree.com/forms/senior--citizen",
+  law: "https://payments.cashfree.com/forms/legal--aid",
+  msme: "https://payments.cashfree.com/forms/msme--registration",
+  gst: "https://payments.cashfree.com/forms/gst--registration",
+  panCard: "https://payments.cashfree.com/forms/pan--card",
+  food: "https://payments.cashfree.com/forms/fssai--registration",
+  passport: "https://payments.cashfree.com/forms/passport--form",
+  ration: "https://payments.cashfree.com/forms/ration--card",
+  shops: "https://payments.cashfree.com/forms/Shops--and--Establishment",
+  marraige: "https://payments.cashfree.com/forms/marriage--registration",
 };

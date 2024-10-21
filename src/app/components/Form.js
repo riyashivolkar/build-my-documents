@@ -1,18 +1,16 @@
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { formData, servicePrices } from "../utils/data/menuData"; // Import servicePrices
+import { formData, serviceUrls } from "../utils/data/menuData"; // Import servicePrices
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../../../firebase/firebaseConfig";
 import Loading from "./Loading";
 import { v4 as uuidv4 } from "uuid"; // Import UUID generator
-import { usePayment } from "../utils/hooks/usePayment";
 
 const Form = () => {
   const [isLoading, setIsLoading] = useState(false); // Add loading state
   const searchParams = useSearchParams();
   const service = searchParams.get("service");
-  const { sendPaymentData } = usePayment(); // Use the custom hook
 
   const [formState, setFormState] = useState({
     name: "",
@@ -129,7 +127,7 @@ const Form = () => {
         const uploadedFilesURLs = await uploadFiles(formState.documents);
         const orderId = uuidv4();
 
-        // Store form data along with the clientId in Firestore
+        // Store form data in Firestore
         await addDoc(collection(db, "formSubmissions"), {
           orderId,
           name: formState.name,
@@ -141,23 +139,13 @@ const Form = () => {
           createdAt: new Date(),
         });
 
-        // **Send Payment Data to Webhook**
-        const payload = {
-          orderId,
-          name: formState.name,
-          service: formState.service,
-          documents: uploadedFilesURLs,
-        };
+        // Send payment data to the webhook
 
-        // Call the webhook
-        await sendPaymentData(payload);
-
-        // Redirect to payment page
-        if (formState.service === "birth") {
-          window.location.href = `https://payments.cashfree.com/forms/birth--certificate?orderId=${orderId}`;
-        } else if (formState.service === "death") {
-          window.location.href = `https://payments.cashfree.com/forms/death--certificate?orderId=${orderId}`;
-        }
+        // Redirect to the appropriate service URL
+        const paymentUrl = `${
+          serviceUrls[formState.service]
+        }?orderId=${orderId}`;
+        window.location.href = paymentUrl;
       } catch (error) {
         console.error("Error submitting form: ", error.message);
       } finally {
@@ -185,7 +173,7 @@ const Form = () => {
               : service === "law"
               ? "Legal Aid Services"
               : service === "gst"
-              ? "GST RSegistration"
+              ? "GST Registration"
               : `${
                   service.charAt(0).toUpperCase() + service.slice(1)
                 } Certificate`}

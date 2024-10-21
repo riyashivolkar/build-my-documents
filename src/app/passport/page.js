@@ -152,7 +152,7 @@ const Page = () => {
                 </h2>
                 <p className="text-gray-500 text-md sm:text-2xl">
                   <br />
-                  Rs. 2,499 For (Normal Application)
+                  Rs. 2,699
                   <br />
                   {/* Rs. 4,199 For (Tatkal Application) */}
                 </p>
