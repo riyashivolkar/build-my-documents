@@ -182,10 +182,15 @@ const Form = () => {
               ? "Passport"
               : service === "food"
               ? "Food License"
+              : service === "law"
+              ? "Legal Aid Services"
+              : service === "gst"
+              ? "GST RSegistration"
               : `${
                   service.charAt(0).toUpperCase() + service.slice(1)
                 } Certificate`}
           </h2>
+
           {isLoading && <Loading />}
           <div className="my-2 text-sm text-gray-500 sm:text-xl">
             {formData[service].map((doc, index) => (

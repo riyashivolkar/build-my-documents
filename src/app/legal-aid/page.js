@@ -1,16 +1,21 @@
 import React from "react";
+import FAQ from "../components/FAQ";
 
 const page = () => {
+  const selectedService = "law";
   return (
     <div>
       <section class="px-2 py-32 bg-white md:px-0">
         <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+          <h1 className="px-3 mb-8 text-xl font-extrabold tracking-tight sm:text-4xl ftext-gray-900 ">
+            We help you in seeking Free Laywer/Legal to fight your case !
+          </h1>
           <div class="flex flex-wrap items-center sm:-mx-3">
             <div class="w-full md:w-1/2 md:px-3">
               <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
                 <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
                   <span class="block xl:inline"> Introduction to</span>
-                  <span class="block text-indigo-600 xl:inline">
+                  <span class="block text-green-600 xl:inline">
                     Free Legal Services
                   </span>
                 </h1>
@@ -20,14 +25,15 @@ const page = () => {
                   sections of society are entitled to free legal services. This
                   website provides information about who qualifies for these
                   services and how to access them. We also help you process your
-                  applications smoothly with processing fee of just ₹300.
+                  applications smoothly with processing fee of just
+                  <span className="font-bold "> ₹300.</span>
                 </p>
                 <div class="relative flex flex-col sm:flex-row sm:space-x-4">
                   <a
-                    href="#_"
-                    class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto"
+                    href={`/form?service=${selectedService}`}
+                    className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-green-600 rounded-md sm:mb-0 hover:bg-green-700 sm:w-auto"
                   >
-                    Try It Free
+                    Apply Now
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       class="w-5 h-5 ml-1"
@@ -43,7 +49,7 @@ const page = () => {
                     </svg>
                   </a>
                   <a
-                    href="#_"
+                    href="#faq"
                     class="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600"
                   >
                     Learn More
@@ -53,7 +59,7 @@ const page = () => {
             </div>
             <div class="w-full md:w-1/2">
               <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
-                <img src="https://images.unsplash.com/photo-1498049860654-af1a5c566876?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+                <img src="/lawpic/herolaw.png" />
               </div>
             </div>
           </div>
@@ -63,10 +69,7 @@ const page = () => {
       <section class="w-full bg-white pt-7 pb-7 md:pt-20 md:pb-24">
         <div class="box-border flex flex-col items-center content-center px-8 mx-auto leading-6 text-black border-0 border-gray-300 border-solid md:flex-row max-w-7xl lg:px-16">
           <div class="box-border relative w-full max-w-md px-4 mt-5 mb-4 -ml-5 text-center bg-no-repeat bg-contain border-solid md:ml-0 md:mt-0 md:max-w-none lg:mb-0 md:w-1/2 xl:pl-10">
-            <img
-              src="https://cdn.devdojo.com/images/december2020/productivity.png"
-              class="p-2 pl-6 pr-5 xl:pl-16 xl:pr-20 "
-            />
+            <img src="/lawpic/1.png" class="p-2 pl-6 pr-5 xl:pl-16 xl:pr-20 " />
           </div>
 
           <div class="box-border order-first w-full text-black border-solid md:w-1/2 md:pl-10 md:order-none">
@@ -79,49 +82,49 @@ const page = () => {
             </p>
             <ul className="p-0 m-0 leading-6 border-0 border-gray-300">
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Scheduled Castes or Scheduled Tribes
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Victims of trafficking or begar
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Women and children
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Persons with disabilities
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Those affected by disasters or crises
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Industrial workers
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Persons in custody or juvenile homes
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Individuals with low income (₹9,000-₹12,000)
@@ -141,25 +144,25 @@ const page = () => {
             </p>
             <ul className="p-0 m-0 leading-6 border-0 border-gray-300">
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Legal Representation: Advocate support in court.
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Document Preparation: Drafting legal documents.
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Legal Advice: Guidance on legal issues.
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
-                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-yellow-300 rounded-full">
+                <span className="inline-flex items-center justify-center w-6 h-6 mr-2 text-white bg-orange-300 rounded-full">
                   <span className="text-sm font-bold">✓</span>
                 </span>
                 Welfare Benefits: Help accessing government benefits.
@@ -168,10 +171,7 @@ const page = () => {
           </div>
 
           <div class="box-border relative w-full max-w-md px-4 mt-10 mb-4 text-center bg-no-repeat bg-contain border-solid md:mt-0 md:max-w-none lg:mb-0 md:w-1/2">
-            <img
-              src="https://cdn.devdojo.com/images/december2020/settings.png"
-              class="pl-4 sm:pr-10 xl:pl-10 lg:pr-32"
-            />
+            <img src="/lawpic/2.png" class="pl-4 sm:pr-10 xl:pl-10 lg:pr-32" />
           </div>
         </div>
       </section>
@@ -210,7 +210,7 @@ const page = () => {
                   </li>
                   <li class="flex items-center py-2 space-x-4 xl:py-3">
                     <svg
-                      class="w-8 h-8 text-yellow-500"
+                      class="w-8 h-8 text-orange-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -252,14 +252,15 @@ const page = () => {
             </div>
             <div class="w-full px-3 mb-12 lg:w-1/2 order-0 lg:order-1 lg:mb-0">
               <img
-                class="mx-auto sm:max-w-sm lg:max-w-full"
-                src="https://cdn.devdojo.com/images/november2020/feature-graphic.png"
+                class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl"
+                src="/lawpic/hero2.png"
                 alt="feature image"
               />
             </div>
           </div>
         </div>
       </section>
+      <FAQ />
 
       {/* <section class="flex items-center justify-center py-20 bg-white min-w-screen">
         <div class="px-16 bg-white">
@@ -369,14 +370,3 @@ const page = () => {
 };
 
 export default page;
-
-// Import any necessary libraries or components
-// import React from "react";
-
-// const LegalAidPage = () => {
-//   return (
-
-//   );
-// };
-
-// export default LegalAidPage;

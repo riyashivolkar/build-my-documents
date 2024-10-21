@@ -102,10 +102,10 @@ const menuData = [
 
   {
     id: 9,
-    title: "Travel Visa",
-    path: "/travel-visa",
+    title: "Legal Aid",
+    path: "/legal-aid",
     icon: (
-      <img src="/menuImg/visa.svg" alt="Travel Visa" className="w-500 h-500" />
+      <img src="/menuImg/law.svg" alt="Travel Visa" className="w-500 h-500" />
     ),
   },
   {
@@ -302,6 +302,13 @@ export const formData = {
   panCard: [
     "Aadhaar card ",
     "Existing PAN copy (Correction/Lost/damage Pan Card)",
+  ],
+
+  law: [
+    "Aadhaar card/ Voter ID/ PAN Card ",
+
+    "Legal Case Documents / FIR (First Information Report /Court notices",
+    "Any existing legal documents related to your case",
   ],
 };
 
