@@ -1,6 +1,6 @@
 const Loading = () => {
   return (
-    <div className="flex items-center justify-center h-screen font-sans bg-orange-500">
+    <div className="flex items-center justify-center w-screen h-screen font-sans bg-orange-500">
       <div className="relative text-center">
         <p className="text-2xl text-white sm:text-3xl">Please wait</p>
         <div className="relative w-10 h-2 mt-4">

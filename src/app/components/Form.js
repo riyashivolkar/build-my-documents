@@ -155,162 +155,165 @@ const Form = () => {
   };
 
   return (
-    <div className="container flex flex-col px-8 pt-6 pb-8 mx-auto my-2 mb-4 bg-white rounded shadow-md">
-      {service && formData[service] && (
-        <div className="px-12">
-          <h2 className="sm:text-xl text-md py-2 font-semibold text-[#f7941d]">
-            Documents Required for{" "}
-            {service === "senior"
-              ? "Senior Citizen Card"
-              : service === "shops"
-              ? "Shops and Establishment Act"
-              : service === "ration"
-              ? "Ration Card"
-              : service === "passport"
-              ? "Passport"
-              : service === "food"
-              ? "Food License"
-              : service === "law"
-              ? "Legal Aid Services"
-              : service === "gst"
-              ? "GST Registration"
-              : `${
-                  service.charAt(0).toUpperCase() + service.slice(1)
-                } Certificate`}
-          </h2>
+    <div className="container flex flex-col items-center justify-center h-screen">
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="flex flex-col px-8 pt-6 pb-8 mx-auto my-2 mb-4 bg-white rounded shadow-md">
+          {service && formData[service] && (
+            <div className="px-12">
+              <h2 className="sm:text-xl text-md py-2 font-semibold text-[#f7941d]">
+                Documents Required for{" "}
+                {service === "senior"
+                  ? "Senior Citizen Card"
+                  : service === "shops"
+                  ? "Shops and Establishment Act"
+                  : service === "ration"
+                  ? "Ration Card"
+                  : service === "passport"
+                  ? "Passport"
+                  : service === "food"
+                  ? "Food License"
+                  : service === "law"
+                  ? "Legal Aid Services"
+                  : service === "gst"
+                  ? "GST Registration"
+                  : `${
+                      service.charAt(0).toUpperCase() + service.slice(1)
+                    } Certificate`}
+              </h2>
 
-          {isLoading && <Loading />}
-          <div className="my-2 text-sm text-gray-500 sm:text-xl">
-            {formData[service].map((doc, index) => (
-              <div key={index} className="my-2 ">
-                {index + 1}. {doc}
-                <br />
+              <div className="my-2 text-sm text-gray-500 sm:text-xl">
+                {formData[service].map((doc, index) => (
+                  <div key={index} className="my-2 ">
+                    {index + 1}. {doc}
+                    <br />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <p className="py-2 text-xs text-orange-500 sm:text-base">
-            Note: Upload whatever documents you have right now. Please prepare
-            the rest for later.
-          </p>
+              <p className="py-2 text-xs text-orange-500 sm:text-base">
+                Note: Upload whatever documents you have right now. Please
+                prepare the rest for later.
+              </p>
+            </div>
+          )}
+          <form onSubmit={handleSubmit} className="w-full p-12">
+            <div className="mb-6 -mx-3 md:flex">
+              <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+                <label
+                  className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                  htmlFor="name"
+                >
+                  Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
+                    errors.name ? "border-red-500" : "border-grey-lighter"
+                  } rounded py-3 px-4`}
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="John Doe"
+                  value={formState.name}
+                  onChange={handleChange}
+                  required
+                />
+                {errors.name && (
+                  <p className="mt-1 text-xs italic text-red-500">
+                    {errors.name}
+                  </p>
+                )}
+              </div>
+              <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+                <label
+                  className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                  htmlFor="email"
+                >
+                  Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
+                    errors.email ? "border-red-500" : "border-grey-lighter"
+                  } rounded py-3 px-4`}
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="john@example.com"
+                  value={formState.email}
+                  onChange={handleChange}
+                  required
+                />
+                {errors.email && (
+                  <p className="mt-1 text-xs italic text-red-500">
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="mb-6 -mx-3 md:flex">
+              <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+                <label
+                  className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                  htmlFor="phone"
+                >
+                  Phone Number (+91) <span className="text-red-500">*</span>{" "}
+                </label>
+                <input
+                  className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
+                    errors.phone ? "border-red-500" : "border-grey-lighter"
+                  } rounded py-3 px-4`}
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Enter 10 digit phone number"
+                  value={formState.phone}
+                  onChange={handleChange}
+                  required
+                />
+                {errors.phone && (
+                  <p className="mt-1 text-xs italic text-red-500">
+                    {errors.phone}
+                  </p>
+                )}
+              </div>
+              <div className="px-3 mb-6 md:w-1/2 md:mb-0">
+                <label
+                  className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
+                  htmlFor="documents"
+                >
+                  Upload Documents <span className="text-red-500">*</span>
+                </label>
+                <input
+                  className="block w-full px-4 py-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-grey-lighter"
+                  id="documents"
+                  name="documents"
+                  type="file"
+                  multiple
+                  onChange={handleFileChange}
+                />
+                {progress.length > 0 && (
+                  <div>
+                    {progress.map((prog, index) => (
+                      <p key={index}>
+                        Upload Progress for file {index + 1}: {prog.toFixed(2)}%
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="mb-6 -mx-3">
+              <div className="px-3">
+                <button
+                  className="px-4 py-2 font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
-      )}
-      {!isLoading && (
-        <form onSubmit={handleSubmit} className="w-full p-12">
-          <div className="mb-6 -mx-3 md:flex">
-            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-              <label
-                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-                htmlFor="name"
-              >
-                Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
-                  errors.name ? "border-red-500" : "border-grey-lighter"
-                } rounded py-3 px-4`}
-                id="name"
-                name="name"
-                type="text"
-                placeholder="John Doe"
-                value={formState.name}
-                onChange={handleChange}
-                required
-              />
-              {errors.name && (
-                <p className="mt-1 text-xs italic text-red-500">
-                  {errors.name}
-                </p>
-              )}
-            </div>
-            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-              <label
-                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-                htmlFor="email"
-              >
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
-                  errors.email ? "border-red-500" : "border-grey-lighter"
-                } rounded py-3 px-4`}
-                id="email"
-                name="email"
-                type="email"
-                placeholder="john@example.com"
-                value={formState.email}
-                onChange={handleChange}
-                required
-              />
-              {errors.email && (
-                <p className="mt-1 text-xs italic text-red-500">
-                  {errors.email}
-                </p>
-              )}
-            </div>
-          </div>
-          <div className="mb-6 -mx-3 md:flex">
-            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-              <label
-                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-                htmlFor="phone"
-              >
-                Phone Number (+91) <span className="text-red-500">*</span>{" "}
-              </label>
-              <input
-                className={`appearance-none block w-full bg-grey-lighter text-grey-darker border ${
-                  errors.phone ? "border-red-500" : "border-grey-lighter"
-                } rounded py-3 px-4`}
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="Enter 10 digit phone number"
-                value={formState.phone}
-                onChange={handleChange}
-                required
-              />
-              {errors.phone && (
-                <p className="mt-1 text-xs italic text-red-500">
-                  {errors.phone}
-                </p>
-              )}
-            </div>
-            <div className="px-3 mb-6 md:w-1/2 md:mb-0">
-              <label
-                className="block mb-2 text-xs font-bold tracking-wide uppercase text-grey-darker"
-                htmlFor="documents"
-              >
-                Upload Documents <span className="text-red-500">*</span>
-              </label>
-              <input
-                className="block w-full px-4 py-3 border rounded appearance-none bg-grey-lighter text-grey-darker border-grey-lighter"
-                id="documents"
-                name="documents"
-                type="file"
-                multiple
-                onChange={handleFileChange}
-              />
-              {progress.length > 0 && (
-                <div>
-                  {progress.map((prog, index) => (
-                    <p key={index}>
-                      Upload Progress for file {index + 1}: {prog.toFixed(2)}%
-                    </p>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="mb-6 -mx-3">
-            <div className="px-3">
-              <button
-                className="px-4 py-2 font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
       )}
     </div>
   );
