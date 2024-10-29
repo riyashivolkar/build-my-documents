@@ -8,7 +8,7 @@ const page = () => {
       <section className="px-2 py-32 bg-white md:px-0">
         <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
           <h1 className="px-3 mb-8 text-xl font-extrabold tracking-tight sm:text-4xl ftext-gray-900 ">
-            We help you in seeking Laywer/Legal to fight your case !
+            We help you in seeking Laywer/Legal to fight your case!
           </h1>
           <div className="flex flex-wrap items-center sm:-mx-3">
             <div className="w-full md:w-1/2 md:px-3">
@@ -26,7 +26,7 @@ const page = () => {
                   website provides information about who qualifies for these
                   services and how to access them. We also help you process your
                   applications smoothly with processing fee of just
-                  <span className="font-bold "> ₹400.</span>
+                  <span className="font-bold "> ₹399.</span>
                 </p>
                 <div className="relative flex flex-col sm:flex-row sm:space-x-4">
                   <a
