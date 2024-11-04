@@ -65,9 +65,9 @@ export default function RootLayout({ children }) {
       >
         <PageProvider>
           <Header />
-          <ConditionalWrapper>
+          {/* <ConditionalWrapper>
             <Hero />
-          </ConditionalWrapper>
+          </ConditionalWrapper> */}
           <ConditionalBackButton />
           <ScrollToTop />
           <main>{children}</main>
