@@ -69,69 +69,70 @@ const FormStep2 = () => {
   }
 
   return (
-    <div className="container p-6 mx-auto bg-white rounded-lg shadow-lg">
-      <div className="mb-8 text-left">
-        <h1 className="text-3xl font-semibold text-gray-800">
-          Booking Information
-        </h1>
-        <p className="text-gray-600">
-          Please review and confirm your booking details.
-        </p>
-      </div>
-
-      <div className="grid gap-6 mb-6 md:grid-cols-2">
-        <div className="px-4 py-3 border border-gray-300 rounded-md ">
-          <label className="block mb-2 text-xl font-semibold text-gray-700 sm:text-2xl">
-            Mobile Number
-          </label>
-          <input
-            type="text"
-            value={phone}
-            onChange={handlePhoneChange}
-            className="w-full py-2 text-lg sm:text-xl focus:outline-none focus:ring focus:ring-orange-500"
-            placeholder="Enter phone number"
-          />
-        </div>
-        <div className="px-4 py-3 bg-gray-100 border border-gray-300 rounded-md ">
-          <label className="block mb-2 text-xl font-semibold text-gray-700 sm:text-2xl">
-            Date & Time
-          </label>
-          <p className="p-3 text-lg rounded-md sm:text-xl">
-            {formatDate(bookingInfo.selectedDate)}, {bookingInfo.selectedSlot}
+    <Suspense>
+      <div className="container p-6 mx-auto bg-white rounded-lg shadow-lg">
+        <div className="mb-8 text-left">
+          <h1 className="text-3xl font-semibold text-gray-800">
+            Booking Information
+          </h1>
+          <p className="text-gray-600">
+            Please review and confirm your booking details.
           </p>
         </div>
-      </div>
 
-      <div className="mb-6">
-        <label className="block mb-2 text-lg font-semibold text-gray-700">
-          Additional Details
-        </label>
-        <textarea
-          value={caseDetails}
-          onChange={(e) => setCaseDetails(e.target.value)}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-500"
-          placeholder="Describe your problem in a few words..."
-          rows="4"
-        />
-      </div>
+        <div className="grid gap-6 mb-6 md:grid-cols-2">
+          <div className="px-4 py-3 border border-gray-300 rounded-md ">
+            <label className="block mb-2 text-xl font-semibold text-gray-700 sm:text-2xl">
+              Mobile Number
+            </label>
+            <input
+              type="text"
+              value={phone}
+              onChange={handlePhoneChange}
+              className="w-full py-2 text-lg sm:text-xl focus:outline-none focus:ring focus:ring-orange-500"
+              placeholder="Enter phone number"
+            />
+          </div>
+          <div className="px-4 py-3 bg-gray-100 border border-gray-300 rounded-md ">
+            <label className="block mb-2 text-xl font-semibold text-gray-700 sm:text-2xl">
+              Date & Time
+            </label>
+            <p className="p-3 text-lg rounded-md sm:text-xl">
+              {formatDate(bookingInfo.selectedDate)}, {bookingInfo.selectedSlot}
+            </p>
+          </div>
+        </div>
 
-      <div className="flex items-center justify-between mt-6">
-        <button
-          onClick={() => router.back()}
-          className="text-3xl text-black hover:text-blue-800"
-        >
-          Back
-        </button>
-        <button
-          onClick={handleSave}
-          className="px-6 py-3 text-white bg-orange-500 rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-400"
-        >
-          Confirm
-        </button>
+        <div className="mb-6">
+          <label className="block mb-2 text-lg font-semibold text-gray-700">
+            Additional Details
+          </label>
+          <textarea
+            value={caseDetails}
+            onChange={(e) => setCaseDetails(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-500"
+            placeholder="Describe your problem in a few words..."
+            rows="4"
+          />
+        </div>
+
+        <div className="flex items-center justify-between mt-6">
+          <button
+            onClick={() => router.back()}
+            className="text-3xl text-black hover:text-blue-800"
+          >
+            Back
+          </button>
+          <button
+            onClick={handleSave}
+            className="px-6 py-3 text-white bg-orange-500 rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-4 focus:ring-orange-400"
+          >
+            Confirm
+          </button>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 
 export default FormStep2;
-///////ji
