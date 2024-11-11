@@ -66,13 +66,11 @@ const Page = () => {
         </div>
         <div className="flex flex-col w-full p-1 mt-10 rounded-lg lg:w-2/6 md:w-1/2 md:ml-auto md:mt-0">
           {/* FormLawyer with selected subcategory passed */}
-          <Suspense fallback={<div>Loading...</div>}>
-            <FormLawyer
-              onOpenModal={openExpertModal}
-              selectedCategory={selectedCategory}
-              subcategory={selectedSubcategory} // Pass subcategory
-            />
-          </Suspense>
+          <FormLawyer
+            onOpenModal={openExpertModal}
+            selectedCategory={selectedCategory}
+            subcategory={selectedSubcategory} // Pass subcategory
+          />
         </div>
       </div>
       <div className="w-full py-10 bg-gradient-to-r from-orange-500 via-green-400 to-green-600"></div>
