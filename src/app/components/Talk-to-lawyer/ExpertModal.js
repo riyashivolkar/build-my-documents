@@ -28,9 +28,11 @@ const ExpertCard = ({ expert, onSelect, isSelected }) => (
       <img
         src={expert.image}
         alt={expert.name}
-        className="w-20 h-20 border-orange-200 rounded-full"
+        className="w-10 h-10 border-orange-200 rounded-full sm:w-20 sm:h-20"
       />
-      <h3 className="text-xl font-semibold text-gray-900">{expert.name}</h3>
+      <h3 className="text-base font-semibold text-gray-900 sm:text-xl">
+        {expert.name}
+      </h3>
     </div>
     <div className="flex items-center">
       <img
@@ -106,13 +108,13 @@ const ExpertModal = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-70">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-gray-800 bg-opacity-70">
       {/* Render ExpertModal or PopupForm based on showForm state */}
       {!showForm ? (
         <div className="relative sm:w-2/4 w-full p-8 md:p-10 lg:p-12 bg-white rounded-xl shadow-2xl overflow-y-auto max-h-[80vh]">
           <ModalHeader onClose={onClose} />
 
-          <h2 className="mb-8 text-2xl font-semibold tracking-wide text-center text-gray-900 sm:text-3xl">
+          <h2 className="mb-8 text-xl font-semibold tracking-wide text-center text-gray-900 sm:text-3xl">
             Select Your Category
           </h2>
 

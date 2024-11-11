@@ -2,12 +2,12 @@
 import React, { Suspense, useState } from "react";
 import FormLawyer from "../components/Talk-to-lawyer/LawyerForm";
 import ExpertModal from "../components/Talk-to-lawyer/ExpertModal";
-import { legalExperts } from "@/app/utils/data/talk2LawyerData";
 import ScrollGallery from "../components/Talk-to-lawyer/ScrollGallery";
 import Image from "next/image";
 import LawyerSteps from "../components/Talk-to-lawyer/LawyerSteps";
 import LawyerServices from "../components/Talk-to-lawyer/LawyerServices";
 import Reviews from "../components/Talk-to-lawyer/Reviews";
+import { legalExperts } from "../utils/data/talk2LawyerData";
 
 const Page = () => {
   const [showExpertModal, setShowExpertModal] = useState(false);
