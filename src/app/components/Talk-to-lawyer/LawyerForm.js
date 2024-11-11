@@ -159,7 +159,7 @@ const LawyerForm = ({
                 name="languages"
                 value={formData.languages}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg md:p-4 lg:p-5 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full p-5 border border-gray-300 rounded-lg md:p-4 lg:p-5 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 required
               >
                 <option value="" disabled>

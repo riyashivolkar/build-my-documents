@@ -50,10 +50,10 @@ const LawyerServices = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Legal Consultation */}
           <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
-            <h4 className="text-3xl font-semibold text-gray-900">
+            <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
               Legal Consultation
             </h4>
-            <p className="mt-4 text-2xl text-gray-500">
+            <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
               Receive expert advice and insights on your legal needs. Our
               experienced lawyers are here to discuss the nuances of your
               situation and provide guidance on the best course of action.
@@ -62,10 +62,10 @@ const LawyerServices = () => {
 
           {/* Drafting and Reviewing Legal Documents */}
           <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
-            <h4 className="text-3xl font-semibold text-gray-900">
+            <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
               Drafting and Reviewing Legal Documents
             </h4>
-            <p className="mt-4 text-2xl text-gray-500">
+            <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
               Ensure the legality and enforceability of your documents. Our
               lawyers specialise in drafting and reviewing contracts,
               agreements, wills, and other legal instruments to protect your
@@ -75,10 +75,10 @@ const LawyerServices = () => {
 
           {/* Litigation and Representation */}
           <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
-            <h4 className="text-3xl font-semibold text-gray-900">
+            <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
               Litigation and Representation
             </h4>
-            <p className="mt-4 text-2xl text-gray-500">
+            <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
               When legal disputes arise, trust our lawyers to represent you in
               court. We handle civil and criminal cases, presenting compelling
               arguments and advocating for your rights.
@@ -87,10 +87,10 @@ const LawyerServices = () => {
 
           {/* Legal Research */}
           <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
-            <h4 className="text-3xl font-semibold text-gray-900">
+            <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
               Legal Research
             </h4>
-            <p className="mt-4 text-2xl text-gray-500">
+            <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
               Benefit from thorough legal research to strengthen your case. Our
               lawyers analyse case law, statutes, and regulations relevant to
               your situation, providing a solid foundation for legal arguments.
@@ -99,10 +99,10 @@ const LawyerServices = () => {
 
           {/* Corporate and Business Law Services */}
           <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
-            <h4 className="text-3xl font-semibold text-gray-900">
+            <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
               Corporate and Business Law Services
             </h4>
-            <p className="mt-4 text-2xl text-gray-500">
+            <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
               Navigate the complexities of business law with confidence. From
               business formation to contract negotiations and compliance, our
               lawyers offer strategic advice to support your business goals.
@@ -111,10 +111,10 @@ const LawyerServices = () => {
 
           {/* Family Law Services */}
           <div className="p-6 transition-shadow duration-300 bg-white rounded-lg shadow-md hover:shadow-xl">
-            <h4 className="text-3xl font-semibold text-gray-900">
+            <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
               Family Law Services
             </h4>
-            <p className="mt-4 text-2xl text-gray-500">
+            <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
               Address family-related legal matters with sensitivity. Our family
               law specialists assist with divorce, child custody, adoption, and
               other issues, guiding you through the legal processes.
@@ -124,10 +124,10 @@ const LawyerServices = () => {
 
         {/* Bulb Section */}
         <div className="mt-20 text-left ">
-          <h4 className="text-3xl font-semibold text-gray-900">
+          <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
             Looking for Online Lawyers Near Me?
           </h4>
-          <p className="mt-4 text-2xl text-gray-500">
+          <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
             Ready to ditch the legal confusion? Talk to a lawyer today and find
             your voice - we're here to listen and guide you every step of the
             way. Search us on Google "lawyers near me online" and get in touch
@@ -137,10 +137,10 @@ const LawyerServices = () => {
 
         {/* Benefits of Hiring a Lawyer Section */}
         <div className="mt-12 text-left">
-          <h4 className="text-3xl font-semibold text-left text-gray-900">
+          <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
             Why are Legal Services Important?
           </h4>
-          <p className="mt-4 text-2xl text-gray-500">
+          <p className="mt-4 text-lg text-gray-500 sm:text-2xl">
             Legal services are the cornerstone of stability in today's complex
             world. These crucial services resolve disputes, decipher
             regulations, and empower confident decision-making, guiding
@@ -148,10 +148,10 @@ const LawyerServices = () => {
             insight and unwavering support.
           </p>
 
-          <h4 className="mt-12 text-3xl font-semibold text-gray-900">
+          <h4 className="text-xl font-semibold text-gray-900 sm:text-3xl">
             Benefits of Hiring a Lawyer
           </h4>
-          <ul className="pl-6 mt-4 space-y-4 text-2xl leading-relaxed text-gray-700 list-disc">
+          <ul className="pl-6 mt-4 space-y-4 text-lg leading-relaxed text-gray-700 list-disc sm:text-2xl">
             <li>
               <strong>Expertise and Knowledge:</strong> Our lawyers at Build My
               Documents have advanced legal training, making them well-versed in

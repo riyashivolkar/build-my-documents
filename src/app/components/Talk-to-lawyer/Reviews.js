@@ -9,7 +9,7 @@ const Reviews = () => {
             Don't just take our word for it
           </p>
 
-          <h2 className="relative flex items-start justify-start w-full max-w-3xl text-5xl font-bold lg:justify-center">
+          <h2 className="relative flex items-start justify-start w-full max-w-3xl text-xl font-bold sm:text-5xl lg:justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
