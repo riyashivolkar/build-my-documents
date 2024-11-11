@@ -155,7 +155,7 @@ const Form = () => {
   };
 
   return (
-    <div className="container flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center py-10 ">
       {isLoading ? (
         <Loading />
       ) : (

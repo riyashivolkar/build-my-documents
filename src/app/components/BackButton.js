@@ -18,8 +18,8 @@ const BackButton = () => {
   };
 
   return (
-    <div className="w-full p-3 flex justify-start bg-[#f7941d]">
-      <div className="container flex flex-row mx-auto">
+    <div className="w-full py-3 sm:px-24 px-5 flex justify-start bg-[#f7941d]">
+      <div className="flex flex-row ">
         <button onClick={handleBack}>
           <img
             src="/backArrow.svg"

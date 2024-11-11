@@ -2,8 +2,13 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div itemScope itemType="https://schema.org/FAQPage" id="faq">
-      <div className="container px-4 py-10 mx-auto">
+    <div
+      itemScope
+      itemType="https://schema.org/FAQPage"
+      id="faq"
+      className="px-5  sm:px-24"
+    >
+      <div className="px-4 py-10 mx-auto ">
         <h1 className="mb-4 text-2xl font-bold text-center">Legal Services </h1>
         <ul className="grid gap-6" data-list="faq">
           <FaqRadioOption

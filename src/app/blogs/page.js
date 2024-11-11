@@ -1,26 +1,45 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
+import { blogs } from "@/app/utils/data/blogData";
 
-const page = () => {
+const BlogsPage = () => {
+  const router = useRouter();
+
+  const handleBlogClick = (id) => {
+    router.push(`/blogs/${id}`);
+  };
+
   return (
-    <section className="p-8 text-gray-600 body-font">
-      <div className="container px-5 mx-auto bg-white py-14">
-        <div className="flex flex-col w-full p-4 mb-20 text-start">
-          <h1 className=" text-4xl font-medium title-font mb-4  text-[rgb(247,148,29)] ">
-            Blogs
-          </h1>
-          <p className="text-xl ">
-            {/* Build My Documents is not a government-run website, and the form
-            provided is not an official registration form. It is designed solely
-            to collect information from our clients so that our experts can
-            better understand their needs. By proceeding with this website, you
-            acknowledge that we are a private company offering assistance and
-            consultation based on customer requests. The fees collected through
-            this website include consultancy charges. */}
-          </p>
+    <section className="px-5 bg-white sm:px-24">
+      <div className="px-6 py-10 mx-auto">
+        <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl">
+          Blog
+        </h1>
+        <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-3">
+          {blogs.map((blog) => (
+            <div
+              key={blog.id}
+              className="cursor-pointer lg:flex"
+              onClick={() => handleBlogClick(blog.id)}
+            >
+              <img
+                className="object-cover w-full h-56 rounded-lg lg:w-64"
+                src={blog.image}
+                alt={blog.title}
+              />
+              <div className="flex flex-col justify-between py-6 lg:mx-6">
+                <span className="text-xl font-semibold text-gray-800 hover:underline">
+                  {blog.title}
+                </span>
+                <span className="text-sm text-gray-500">On: {blog.date}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default page;
+export default BlogsPage;

@@ -5,16 +5,17 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 bg-white body-font">
-      <div className="container flex flex-col flex-wrap px-3 py-8 mx-auto sm:px-5 md:flex-row md:py-12 lg:items-start">
+    <footer className="text-gray-600 body-font">
+      <div className="flex flex-col flex-wrap items-center px-3 py-8 bg-gray-300 justify-evenly sm:px-5 md:flex-row md:py-12">
         {/* Logo Section */}
         <div className="flex-shrink-0 w-full mb-6 text-center md:text-left md:w-1/4 md:mb-0">
           <a
-            className="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start"
+            className="flex items-center justify-center font-medium text-gray-100 title-font md:justify-start"
             href="/"
           >
             <Image
               src="/logo1.png"
+              className="bg-gray-300 "
               alt="logo"
               width={240}
               height={58}
@@ -26,7 +27,7 @@ const Footer = () => {
         {/* Links Section */}
         <div className="flex flex-wrap flex-grow text-center md:text-left">
           {/* Company Links */}
-          <div className="w-full px-2 mb-6 md:w-1/3 lg:w-1/4 md:mb-0">
+          <div className="w-full px-2 mb-6 md:w-1/3 md:mb-0">
             <h2 className="mb-3 text-sm font-semibold tracking-widest text-gray-900 title-font">
               COMPANY
             </h2>
@@ -44,7 +45,7 @@ const Footer = () => {
           </div>
 
           {/* Legal Links */}
-          <div className="w-full px-2 mb-6 md:w-1/3 lg:w-1/4 md:mb-0">
+          <div className="w-full px-2 mb-6 md:w-1/3 md:mb-0">
             <h2 className="mb-3 text-sm font-semibold tracking-widest text-gray-900 title-font">
               LEGAL
             </h2>
@@ -62,7 +63,7 @@ const Footer = () => {
           </div>
 
           {/* Follow Us Section */}
-          <div className="w-full px-2 md:w-1/3 lg:w-1/4">
+          <div className="w-full px-2 md:w-1/3 ">
             <h2 className="mb-3 text-sm font-semibold tracking-widest text-gray-900 title-font">
               FOLLOW US
             </h2>
@@ -82,7 +83,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="flex flex-col items-center justify-center px-3 py-3 bg-gray-200">
+      <div className="flex flex-col items-center justify-center px-3 py-3 ">
         <p className="text-xs text-center text-gray-800 sm:text-sm">
           © 2024 <span className="font-semibold">BUILD MY DOCUMENTS</span> ALL
           RIGHTS RESERVED

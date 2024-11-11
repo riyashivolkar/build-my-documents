@@ -9,7 +9,7 @@ const Page = () => {
             About Us
           </h1>
           <p className="text-md ">
-            Welcome to Build My Documentsyour trusted partner for hassle-free
+            Welcome to Build My Documents your trusted partner for hassle-free
             document solutions!
           </p>
           <p className="text-md ">

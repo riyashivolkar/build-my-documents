@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header className="text-gray-600 bg-white body-font">
-      <div className="container flex flex-row flex-wrap items-center p-1 mx-auto">
+      <div className="flex flex-row flex-wrap items-center p-1 px-5 mx-auto sm:px-24">
         <div className="flex items-center mb-1 font-medium text-gray-900 title-font md:mb-0">
           <Link href="/">
             <Image
@@ -41,14 +41,14 @@ const Header = () => {
 
         {/* Navigation items for desktop */}
         <nav
-          className={`hidden md:flex flex-wrap items-center justify-center text-2xl md:ml-auto`}
+          className={`hidden md:flex flex-wrap items-center justify-center text-3xl md:ml-auto`}
         >
           {menuHeader.map((item, index) =>
             item.path ? (
               <Link
                 key={index}
                 href={item.path}
-                className="mr-8 font-serif cursor-pointer hover:text-[#f7941d]"
+                className="mr-8  cursor-pointer hover:text-[#f7941d]"
               >
                 {item.name}
               </Link>

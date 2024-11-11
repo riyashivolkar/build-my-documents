@@ -328,3 +328,5 @@ export const serviceUrls = {
   shops: "https://payments.cashfree.com/forms/Shops--and--Establishment",
   marraige: "https://payments.cashfree.com/forms/marriage--registration",
 };
+
+// menuData.js

@@ -13,7 +13,7 @@ const Hero = () => {
   }
 
   return (
-    <div className="relative flex items-center justify-center w-full min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh pb-12">
+    <div className="relative flex items-start justify-center w-full min-h-[60vh] ">
       <section className="relative w-full h-full">
         <a className="absolute inset-0 cursor-pointer" href="/">
           <Image

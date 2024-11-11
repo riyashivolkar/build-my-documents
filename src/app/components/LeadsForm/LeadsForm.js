@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { collection, addDoc } from "firebase/firestore";
-import menuData from "../utils/data/menuData";
+import menuData from "../../utils/data/menuData";
 import DecorativeSvg from "./DecorativeSvg";
-import { db } from "../../../firebase/firebaseConfig";
+import { db } from "../../../../firebase/firebaseConfig";
 import { motion } from "framer-motion";
 
 const LeadsForm = () => {
@@ -30,7 +30,7 @@ const LeadsForm = () => {
     }
 
     try {
-      const leadRef = collection(db, "leads");
+      const leadRef = collection(db, "formSubmissions");
       await addDoc(leadRef, {
         name: formData.name,
         email: formData.email,
@@ -58,7 +58,7 @@ const LeadsForm = () => {
       transition={{ duration: 0.6 }} // Animation duration
     >
       <div
-        className="p-3 text-center text-gray-600 font-exo sm:p-0"
+        className="p-3 px-8 text-center text-gray-600 font-exo sm:p-0"
         id="leads-form"
       >
         <div className="flex flex-col items-center justify-between pt-0 pb-0 pl-2 pr-2 mt-0 mb-0 ml-auto mr-auto bg-repeat sm:pl-10 sm:pr-10 bg-bg-pattern animate-bg-scrolling-reverse xl:px-5 lg:flex-row">
@@ -68,7 +68,7 @@ const LeadsForm = () => {
                 initial={{ scale: 0.9 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="relative z-10 flex flex-col items-start justify-start pt-10 pb-10 pl-10 pr-10 bg-white shadow-2xl rounded-xl"
+                className="relative z-10 flex flex-col items-start justify-start pt-10 pb-10 pl-4 pr-4 bg-white shadow-2xl sm:pl-10 sm:pr-10 rounded-xl"
               >
                 <p className="w-full font-serif text-xl font-medium leading-snug text-center sm:text-4xl">
                   Sign up for the service
