@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
@@ -10,9 +10,19 @@ import FormStep2 from "./components/FormStep2";
 
 const Step2 = () => {
   const searchParams = useSearchParams();
-  const docId = searchParams.get("docId");
-  const selectedSlot = searchParams.get("selectedSlot");
+  const [docId, setDocId] = useState(null);
+  const [selectedSlot, setSelectedSlot] = useState(null);
   const [clientData, setClientData] = useState(null);
+
+  useEffect(() => {
+    const docIdParam = searchParams.get("docId");
+    const selectedSlotParam = searchParams.get("selectedSlot");
+
+    if (docIdParam && selectedSlotParam) {
+      setDocId(docIdParam);
+      setSelectedSlot(selectedSlotParam);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const fetchClientData = async () => {
@@ -27,7 +37,9 @@ const Step2 = () => {
       }
     };
 
-    fetchClientData();
+    if (docId) {
+      fetchClientData();
+    }
   }, [docId]);
 
   const handleUpdateMoreInfo = async (newInfo) => {
@@ -59,15 +71,12 @@ const Step2 = () => {
           </Link>
         </div>
 
-        {/* Wrap only the content requiring Suspense */}
-        <Suspense fallback={<div>Loading...</div>}>
-          <div className="bg-gray-100 ">
-            <StepStep2 />
-          </div>
-          <div className="">
-            <FormStep2 />
-          </div>
-        </Suspense>
+        <div className="bg-gray-100 ">
+          <StepStep2 />
+        </div>
+        <div className="">
+          <FormStep2 />
+        </div>
       </div>
     </div>
   );
