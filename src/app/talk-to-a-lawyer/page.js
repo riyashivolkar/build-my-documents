@@ -73,7 +73,7 @@ const Page = () => {
           />
         </div>
       </div>
-      <div className="w-full py-10 bg-gradient-to-r from-orange-500 via-green-400 to-green-600"></div>
+      <div className="w-full py-5 sm:py-10 bg-gradient-to-r from-orange-500 via-green-400 to-green-600"></div>
       <LawyerSteps />
       <LawyerServices />
       <Reviews />

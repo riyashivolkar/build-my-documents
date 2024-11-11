@@ -57,7 +57,7 @@ const ExpertDetails = ({ expert, onSubCategoryClick }) => (
         {expert.subCategories.map((subCategory) => (
           <div
             key={subCategory.id}
-            className="p-5 text-xl border-b border-gray-300 cursor-pointer hover:text-orange-500"
+            className="p-2 text-base border-b border-gray-300 cursor-pointer sm:p-5 sm:text-xl hover:text-orange-500"
             onClick={() => onSubCategoryClick(subCategory)}
           >
             {subCategory.name}

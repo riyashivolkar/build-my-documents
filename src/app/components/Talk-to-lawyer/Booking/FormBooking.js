@@ -125,7 +125,7 @@ const FormBooking = ({ onTimeSelected }) => {
   const LoadingComponent = () => <div>Loading...</div>; // Fallback component
 
   return (
-    <div className="container p-6 mx-auto bg-white">
+    <div className="container p-6 mx-auto overflow-x-hidden bg-white">
       <div className="flex justify-around mb-4 border-b-4 border-gray-100">
         <button
           onClick={() => handleDateSelection("Today")}
