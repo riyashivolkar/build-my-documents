@@ -59,18 +59,15 @@ const Step2 = () => {
           </Link>
         </div>
 
-        {/* StepStep2 is wrapped with Suspense */}
-        <div className="bg-gray-100 ">
-          <Suspense fallback={<div>Loading...</div>}>
+        {/* Wrap the Step2 content in Suspense */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="bg-gray-100 ">
             <StepStep2 />
-          </Suspense>
-        </div>
-        <div className="">
-          {/* FormStep2 is wrapped with Suspense */}
-          <Suspense fallback={<div>Loading...</div>}>
+          </div>
+          <div className="">
             <FormStep2 />
-          </Suspense>
-        </div>
+          </div>
+        </Suspense>
       </div>
     </div>
   );
