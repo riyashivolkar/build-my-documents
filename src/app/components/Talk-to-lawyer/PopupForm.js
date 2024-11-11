@@ -1,16 +1,21 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../../firebase/firebaseConfig";
+import { useRouter } from "next/navigation";
 
 const PopupForm = ({ onClose, subcategory }) => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     phone: "",
     city: "",
     languages: "",
   });
+  const languageOptions = ["English", "Hindi", "Marathi", "Konkani"];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
@@ -23,9 +28,25 @@ const PopupForm = ({ onClose, subcategory }) => {
       return;
     }
 
-    // Logic for submitting the form can be added here later
-    console.log("Form submitted", formData);
-    onClose(); // Close the modal after submission
+    try {
+      const docRef = await addDoc(collection(db, "talktolawyer"), {
+        ...formData,
+        subcategory: subcategory?.name || "Others",
+        createdAt: new Date(),
+      });
+      console.log("Form data saved successfully");
+
+      onClose(); // Close the modal after submission
+
+      // Redirect to the booking page with form data and document ID
+      const queryParams = new URLSearchParams({
+        ...formData,
+        docId: docRef.id,
+      }).toString();
+      router.push(`/talk-to-a-lawyer/booking?${queryParams}`);
+    } catch (error) {
+      console.error("Error saving form data: ", error);
+    }
   };
 
   const handleChange = (e) => {
@@ -69,7 +90,6 @@ const PopupForm = ({ onClose, subcategory }) => {
         {/* Form */}
         <form onSubmit={handleSubmit}>
           <div className="space-y-6">
-            {/* Email Field */}
             <div className="relative">
               <label
                 htmlFor="email"
@@ -89,7 +109,6 @@ const PopupForm = ({ onClose, subcategory }) => {
               />
             </div>
 
-            {/* Phone Number Field */}
             <div className="relative">
               <label
                 htmlFor="phone"
@@ -109,7 +128,6 @@ const PopupForm = ({ onClose, subcategory }) => {
               />
             </div>
 
-            {/* City Field */}
             <div className="relative">
               <label
                 htmlFor="city"
@@ -129,27 +147,29 @@ const PopupForm = ({ onClose, subcategory }) => {
               />
             </div>
 
-            {/* Languages Field */}
-            <div className="relative">
-              <label
-                htmlFor="languages"
-                className="block mb-2 text-sm font-semibold text-gray-700 md:text-base lg:text-lg"
-              >
-                Languages Spoken
-              </label>
-              <input
-                type="text"
+            <div className="relative pb-3 text-sm sm:text-base">
+              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 font-medium text-gray-600 bg-white">
+                Language
+              </p>
+              <select
                 id="languages"
                 name="languages"
                 value={formData.languages}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg md:p-4 lg:p-5 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="language of communication"
+                className="w-full p-5 border border-gray-300 rounded-lg md:p-4 lg:p-5 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 required
-              />
+              >
+                <option value="" disabled>
+                  Select a language
+                </option>
+                {languageOptions.map((language) => (
+                  <option key={language} value={language}>
+                    {language}
+                  </option>
+                ))}
+              </select>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               className="w-full py-3 mt-4 text-lg font-semibold text-white transition bg-orange-500 rounded-lg md:text-xl lg:text-2xl hover:bg-orange-600"
