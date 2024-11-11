@@ -118,7 +118,7 @@ const FormStep2 = () => {
       <div className="flex items-center justify-between mt-6">
         <button
           onClick={() => router.back()}
-          className="text-3xl text-black hover:text-blue-800"
+          className="text-lg text-black sm:text-3xl hover:text-blue-800"
         >
           Back
         </button>

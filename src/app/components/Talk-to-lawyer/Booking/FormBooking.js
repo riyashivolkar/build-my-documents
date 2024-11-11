@@ -125,28 +125,34 @@ const FormBooking = ({ onTimeSelected }) => {
   const LoadingComponent = () => <div>Loading...</div>; // Fallback component
 
   return (
-    <div className="container p-6 mx-auto overflow-x-hidden bg-white">
+    <div className="container p-2 mx-auto overflow-x-hidden bg-white sm:p-6">
       <div className="flex justify-around mb-4 border-b-4 border-gray-100">
         <button
           onClick={() => handleDateSelection("Today")}
           className={`${getButtonClass("Today")}`}
         >
           Today
-          <span className="text-green-500 sm:text-xl">Slots available</span>
+          <span className="text-sm text-green-500 sm:text-xl">
+            Slots available
+          </span>
         </button>
         <button
           onClick={() => handleDateSelection("Tomorrow")}
           className={getButtonClass("Tomorrow")}
         >
           Tomorrow
-          <span className="text-green-500 sm:text-xl">Slots available</span>
+          <span className="text-sm text-green-500 sm:text-xl">
+            Slots available
+          </span>
         </button>
         <button
           onClick={() => handleDateSelection(getSpecificDate())}
           className={getButtonClass(getSpecificDate())}
         >
           {getSpecificDate()}
-          <span className="text-green-500 sm:text-xl">Slots available</span>
+          <span className="text-sm text-green-500 sm:text-xl">
+            Slots available
+          </span>
         </button>
       </div>
 
