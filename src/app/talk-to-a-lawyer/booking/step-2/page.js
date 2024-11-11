@@ -5,8 +5,15 @@ import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
-import StepStep2 from "./components/StepsStep2";
-import FormStep2 from "./components/FormStep2";
+import dynamic from "next/dynamic";
+
+// Dynamically import StepStep2 and FormStep2 to ensure they are only loaded on the client
+const StepStep2 = dynamic(() => import("./components/StepsStep2"), {
+  suspense: true,
+});
+const FormStep2 = dynamic(() => import("./components/FormStep2"), {
+  suspense: true,
+});
 
 const Step2 = () => {
   const searchParams = useSearchParams();
