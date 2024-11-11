@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
@@ -74,7 +74,8 @@ const Step2 = () => {
         <div className="bg-gray-100 ">
           <StepStep2 />
         </div>
-        <Suspense>
+
+        <Suspense fallback={<div>Loading...</div>}>
           <div className="">
             <FormStep2 />
           </div>
@@ -85,5 +86,3 @@ const Step2 = () => {
 };
 
 export default Step2;
-
-///hi
