@@ -2,10 +2,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation"; // Use next/navigation
 import { db } from "../../../../../firebase/firebaseConfig"; // Correct import
 import { doc, updateDoc } from "firebase/firestore";
-import {
-  timeSlots,
-  icons,
-} from "@/app/talk-to-a-lawyer/booking/components/dataBooking";
+import { timeSlots, icons } from "@/app/utils/data/dataBooking";
 
 const FormBooking = ({ onTimeSelected }) => {
   const searchParams = useSearchParams(); // Get search parameters
