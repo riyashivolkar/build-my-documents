@@ -7,9 +7,8 @@ import Steps from "./components/Steps";
 export default function Home() {
   return (
     <div className="bg-white">
-      <Suspense>
-        <Experts />
-      </Suspense>
+      <Experts />
+
       <Hero />
       <LeadsForm />
       <Steps />
