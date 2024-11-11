@@ -2,7 +2,7 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useSearchParams, useRouter } from "next/navigation";
-import { db } from "../../../../../../firebase/firebaseConfig";
+import { db } from "../../../../../firebase/firebaseConfig";
 
 const FormStep2 = () => {
   const searchParams = useSearchParams();

@@ -1,12 +1,12 @@
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
 import StepStep2 from "./components/StepsStep2";
-import FormStep2 from "./components/FormStep2";
+import FormStep2 from "@/app/components/Talk-to-lawyer/Booking/FormStep2";
+import { db } from "../../../../../firebase/firebaseConfig";
 
 const Step2 = () => {
   const searchParams = useSearchParams();
