@@ -1,7 +1,6 @@
-"use client";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { db } from "../../../../../firebase/firebaseConfig"; // Ensure correct import paths
+import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
@@ -59,7 +58,7 @@ const Step2 = () => {
           </Link>
         </div>
 
-        {/* Wrap the Step2 content in Suspense */}
+        {/* Wrap only the content requiring Suspense */}
         <Suspense fallback={<div>Loading...</div>}>
           <div className="bg-gray-100 ">
             <StepStep2 />
