@@ -125,7 +125,7 @@ const FormBooking = ({ onTimeSelected }) => {
   const LoadingComponent = () => <div>Loading...</div>; // Fallback component
 
   return (
-    <div className="container p-2 mx-auto overflow-x-hidden bg-white sm:p-6">
+    <div className="container p-2 px-2 mx-auto overflow-x-hidden bg-white sm:p-6">
       <div className="flex justify-around mb-4 border-b-4 border-gray-100">
         <button
           onClick={() => handleDateSelection("Today")}
@@ -162,12 +162,12 @@ const FormBooking = ({ onTimeSelected }) => {
             {icons[slot]}
             <h3 className="ml-2 text-lg font-semibold">{slot}</h3>
           </div>
-          <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 sm:grid-cols-4">
             {times.map((slotObj) => (
               <button
                 key={slotObj.id}
                 onClick={() => handleTimeSelection(slotObj)}
-                className={`px-4 py-2 text-sm font-bold border-2 rounded-md ${
+                className={`sm:px-4 px-2 py-2 text-sm font-bold border-2 rounded-md ${
                   isTimeDisabled(slotObj.time)
                     ? "bg-white text-gray-300 font-bold cursor-not-allowed"
                     : selectedTime?.id === slotObj.id
