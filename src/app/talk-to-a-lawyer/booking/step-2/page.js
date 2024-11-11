@@ -1,12 +1,20 @@
 "use client";
-import React, { useState, useEffect } from "react";
+
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
-import StepStep2 from "./components/StepsStep2";
-import FormStep2 from "./components/FormStep2";
+import dynamic from "next/dynamic";
+
+// Dynamically import Step2 components to ensure it's client-side rendered
+const StepStep2 = dynamic(() => import("./components/StepsStep2"), {
+  ssr: false,
+});
+const FormStep2 = dynamic(() => import("./components/FormStep2"), {
+  ssr: false,
+});
 
 const Step2 = () => {
   const searchParams = useSearchParams();
@@ -83,5 +91,3 @@ const Step2 = () => {
 };
 
 export default Step2;
-
-///hi
