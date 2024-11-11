@@ -4,6 +4,8 @@ import { useSearchParams, useRouter } from "next/navigation"; // Use next/naviga
 import { db } from "../../../../../firebase/firebaseConfig"; // Correct import
 import { doc, updateDoc } from "firebase/firestore";
 
+const LoadingComponent = () => <div>Loading...</div>; // Fallback component for Suspense
+
 const FormBooking = ({ onTimeSelected }) => {
   const searchParams = useSearchParams(); // Get search parameters
   const [docId, setDocId] = useState(null); // State for docId
@@ -60,7 +62,6 @@ const FormBooking = ({ onTimeSelected }) => {
     if (selectedDate !== "Today") {
       return false;
     }
-    const LoadingComponent = () => <div>Loading...</div>; // Fallback component
 
     const [timeString, period] = time.split(" ");
     const [slotHour, slotMinute] = timeString.split(":").map(Number);
