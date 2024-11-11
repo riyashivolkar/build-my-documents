@@ -1,10 +1,8 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { timeSlots, icons } from "./dataBooking";
 import { useSearchParams, useRouter } from "next/navigation"; // Use next/navigation
 import { db } from "../../../../../firebase/firebaseConfig"; // Correct import
 import { doc, updateDoc } from "firebase/firestore";
-
-const LoadingComponent = () => <div>Loading...</div>; // Fallback component for Suspense
 
 const FormBooking = ({ onTimeSelected }) => {
   const searchParams = useSearchParams(); // Get search parameters
