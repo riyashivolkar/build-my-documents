@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, Suspense } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
