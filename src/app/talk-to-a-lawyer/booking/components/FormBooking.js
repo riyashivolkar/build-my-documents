@@ -125,75 +125,73 @@ const FormBooking = ({ onTimeSelected }) => {
   const LoadingComponent = () => <div>Loading...</div>; // Fallback component
 
   return (
-    <Suspense fallback={<div>Loading Step2...</div>}>
-      <div className="container p-6 mx-auto bg-white">
-        <div className="flex justify-around mb-4 border-b-4 border-gray-100">
-          <button
-            onClick={() => handleDateSelection("Today")}
-            className={`${getButtonClass("Today")}`}
-          >
-            Today
-            <span className="text-green-500 sm:text-xl">Slots available</span>
-          </button>
-          <button
-            onClick={() => handleDateSelection("Tomorrow")}
-            className={getButtonClass("Tomorrow")}
-          >
-            Tomorrow
-            <span className="text-green-500 sm:text-xl">Slots available</span>
-          </button>
-          <button
-            onClick={() => handleDateSelection(getSpecificDate())}
-            className={getButtonClass(getSpecificDate())}
-          >
-            {getSpecificDate()}
-            <span className="text-green-500 sm:text-xl">Slots available</span>
-          </button>
-        </div>
-
-        {Object.entries(timeSlots).map(([slot, times]) => (
-          <div key={slot} className="py-5 mb-4">
-            <div className="flex items-center mb-2">
-              {icons[slot]}
-              <h3 className="ml-2 text-lg font-semibold">{slot}</h3>
-            </div>
-            <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
-              {times.map((slotObj) => (
-                <button
-                  key={slotObj.id}
-                  onClick={() => handleTimeSelection(slotObj)}
-                  className={`px-4 py-2 text-sm font-bold border-2 rounded-md ${
-                    isTimeDisabled(slotObj.time)
-                      ? "bg-white text-gray-300 font-bold cursor-not-allowed"
-                      : selectedTime?.id === slotObj.id
-                      ? "bg-orange-500 text-white"
-                      : ""
-                  }`}
-                  disabled={isTimeDisabled(slotObj.time)}
-                >
-                  {slotObj.time}
-                </button>
-              ))}
-            </div>
-            <div className="border-gray-300 "></div>
-          </div>
-        ))}
-
-        <div className="flex justify-end w-full px-12 py-6 text-2xl border border-gray-100">
-          <button
-            onClick={handleTimeSlotSelection} // Call the function when 'Next' is clicked
-            className={`px-4 py-2 rounded-lg ${
-              selectedTime
-                ? "bg-orange-500 text-white"
-                : "bg-gray-100 font-semibold text-gray-300 cursor-not-allowed"
-            }`}
-            disabled={!selectedTime} // Disable if no time is selected
-          >
-            Next
-          </button>
-        </div>
+    <div className="container p-6 mx-auto bg-white">
+      <div className="flex justify-around mb-4 border-b-4 border-gray-100">
+        <button
+          onClick={() => handleDateSelection("Today")}
+          className={`${getButtonClass("Today")}`}
+        >
+          Today
+          <span className="text-green-500 sm:text-xl">Slots available</span>
+        </button>
+        <button
+          onClick={() => handleDateSelection("Tomorrow")}
+          className={getButtonClass("Tomorrow")}
+        >
+          Tomorrow
+          <span className="text-green-500 sm:text-xl">Slots available</span>
+        </button>
+        <button
+          onClick={() => handleDateSelection(getSpecificDate())}
+          className={getButtonClass(getSpecificDate())}
+        >
+          {getSpecificDate()}
+          <span className="text-green-500 sm:text-xl">Slots available</span>
+        </button>
       </div>
-    </Suspense>
+
+      {Object.entries(timeSlots).map(([slot, times]) => (
+        <div key={slot} className="py-5 mb-4">
+          <div className="flex items-center mb-2">
+            {icons[slot]}
+            <h3 className="ml-2 text-lg font-semibold">{slot}</h3>
+          </div>
+          <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+            {times.map((slotObj) => (
+              <button
+                key={slotObj.id}
+                onClick={() => handleTimeSelection(slotObj)}
+                className={`px-4 py-2 text-sm font-bold border-2 rounded-md ${
+                  isTimeDisabled(slotObj.time)
+                    ? "bg-white text-gray-300 font-bold cursor-not-allowed"
+                    : selectedTime?.id === slotObj.id
+                    ? "bg-orange-500 text-white"
+                    : ""
+                }`}
+                disabled={isTimeDisabled(slotObj.time)}
+              >
+                {slotObj.time}
+              </button>
+            ))}
+          </div>
+          <div className="border-gray-300 "></div>
+        </div>
+      ))}
+
+      <div className="flex justify-end w-full px-12 py-6 text-2xl border border-gray-100">
+        <button
+          onClick={handleTimeSlotSelection} // Call the function when 'Next' is clicked
+          className={`px-4 py-2 rounded-lg ${
+            selectedTime
+              ? "bg-orange-500 text-white"
+              : "bg-gray-100 font-semibold text-gray-300 cursor-not-allowed"
+          }`}
+          disabled={!selectedTime} // Disable if no time is selected
+        >
+          Next
+        </button>
+      </div>
+    </div>
   );
 };
 
