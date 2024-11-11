@@ -1,14 +1,12 @@
 "use client";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { db } from "../../../../../firebase/firebaseConfig";
+import { db } from "../../../../../firebase/firebaseConfig"; // Ensure correct import paths
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
 import StepStep2 from "./components/StepsStep2";
 import FormStep2 from "./components/FormStep2";
-
-const LoadingComponent = () => <div>Loading...</div>; // Fallback component
 
 const Step2 = () => {
   const searchParams = useSearchParams();
@@ -49,7 +47,7 @@ const Step2 = () => {
     <Suspense fallback={<div>Loading...</div>}>
       <div className="fixed inset-0 z-10 flex items-center justify-center overflow-y-auto bg-black bg-opacity-50">
         <div className="relative w-full h-full bg-gray-100 rounded-lg shadow-lg">
-          <div className="bg-white">
+          <div className="bg-white ">
             <Link href="/">
               <Image
                 src="/logo1.png"
@@ -62,16 +60,11 @@ const Step2 = () => {
             </Link>
           </div>
 
-          <div className="bg-gray-100">
-            <Suspense fallback={<LoadingComponent />}>
-              <StepStep2 />
-            </Suspense>
+          <div className="bg-gray-100 ">
+            <StepStep2 />
           </div>
-
-          <div>
-            <Suspense fallback={<LoadingComponent />}>
-              <FormStep2 />
-            </Suspense>
+          <div className="">
+            <FormStep2 />
           </div>
         </div>
       </div>
