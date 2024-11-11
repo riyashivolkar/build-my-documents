@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useSearchParams, useRouter } from "next/navigation";
