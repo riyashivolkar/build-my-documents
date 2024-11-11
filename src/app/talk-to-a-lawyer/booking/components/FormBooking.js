@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { timeSlots, icons } from "./dataBooking";
 import { useSearchParams, useRouter } from "next/navigation"; // Use next/navigation
