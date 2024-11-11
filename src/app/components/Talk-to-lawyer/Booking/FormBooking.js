@@ -113,7 +113,7 @@ const FormBooking = ({ onTimeSelected }) => {
 
         // Add current data as query params to pass to the next page
         router.push(
-          `/talk-to-a-lawyer/booking/step-2?docId=${docId}&selectedSlot=${selectedTime.time}&selectedDate=${dateForSlot}&phone=${phone}`
+          `/talk-to-a-lawyer/step-2?docId=${docId}&selectedSlot=${selectedTime.time}&selectedDate=${dateForSlot}&phone=${phone}`
         );
       } else {
         console.error("No document ID found");

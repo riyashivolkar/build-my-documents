@@ -4,9 +4,9 @@ import { useSearchParams } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
-import StepStep2 from "../../../components/Talk-to-lawyer/Booking/StepsStep2";
+import StepStep2 from "../../components/Talk-to-lawyer/Booking/StepsStep2";
 import FormStep2 from "@/app/components/Talk-to-lawyer/Booking/FormStep2";
-import { db } from "../../../../../firebase/firebaseConfig";
+import { db } from "../../../../firebase/firebaseConfig";
 
 const Step2 = () => {
   const searchParams = useSearchParams();
@@ -56,30 +56,31 @@ const Step2 = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-10 flex items-center justify-center overflow-y-auto bg-black bg-opacity-50">
-      <div className="relative w-full h-full bg-gray-100 rounded-lg shadow-lg">
-        <div className="bg-white ">
-          <Link href="/">
-            <Image
-              src="/logo1.png"
-              alt="logo"
-              width={280}
-              height={68}
-              priority
-              className="w-40 h-auto sm:w-80 md:h-auto"
-            />
-          </Link>
-        </div>
-        <div className="bg-gray-100 ">
-          <StepStep2 />
-        </div>
-        <Suspense>
+    <Suspense>
+      <div className="fixed inset-0 z-10 flex items-center justify-center overflow-y-auto bg-black bg-opacity-50">
+        <div className="relative w-full h-full bg-gray-100 rounded-lg shadow-lg">
+          <div className="bg-white ">
+            <Link href="/">
+              <Image
+                src="/logo1.png"
+                alt="logo"
+                width={280}
+                height={68}
+                priority
+                className="w-40 h-auto sm:w-80 md:h-auto"
+              />
+            </Link>
+          </div>
+          <div className="bg-gray-100 ">
+            <StepStep2 />
+          </div>
+
           <div className="">
             <FormStep2 />
           </div>
-        </Suspense>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 
