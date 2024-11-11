@@ -124,6 +124,7 @@ const FormBooking = ({ onTimeSelected }) => {
       console.error("Error updating time slot:", error);
     }
   };
+  const LoadingComponent = () => <div>Loading...</div>; // Fallback component
 
   return (
     <Suspense fallback={<LoadingComponent />}>
