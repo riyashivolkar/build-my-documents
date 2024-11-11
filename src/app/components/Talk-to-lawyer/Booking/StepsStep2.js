@@ -23,7 +23,7 @@ const StepStep2 = () => {
               </svg>
             </span>
 
-            <span className="hidden mb-10 text-xl text-black sm:block">
+            <span className="mb-10 text-sm text-black sm:text-xl">
               Fill Form
             </span>
           </li>
@@ -44,7 +44,7 @@ const StepStep2 = () => {
               </svg>
             </span>
 
-            <span className="hidden mb-10 text-xl text-black sm:block">
+            <span className="mb-10 text-sm text-black sm:text-xl">
               Choose Timing
             </span>
           </li>
@@ -65,7 +65,7 @@ const StepStep2 = () => {
               </svg>
             </span>
 
-            <span className="hidden mb-10 text-xl text-gray-400 sm:block">
+            <span className="mb-10 text-sm text-black sm:text-xl">
               Confirm & Pay
             </span>
           </li>
