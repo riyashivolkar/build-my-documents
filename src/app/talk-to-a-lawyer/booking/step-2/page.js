@@ -5,15 +5,8 @@ import { db } from "../../../../../firebase/firebaseConfig";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
-
-// Dynamically import StepStep2 and FormStep2 to ensure they are only loaded on the client
-const StepStep2 = dynamic(() => import("./components/StepsStep2"), {
-  suspense: true,
-});
-const FormStep2 = dynamic(() => import("./components/FormStep2"), {
-  suspense: true,
-});
+import StepStep2 from "./components/StepsStep2";
+import FormStep2 from "./components/FormStep2";
 
 const Step2 = () => {
   const searchParams = useSearchParams();
@@ -77,18 +70,15 @@ const Step2 = () => {
             />
           </Link>
         </div>
-
-        <div className="bg-gray-100 ">
-          <Suspense fallback={<div>Loading Step2...</div>}>
+        <Suspense fallback={<div>Loading Step2...</div>}>
+          <div className="bg-gray-100 ">
             <StepStep2 />
-          </Suspense>
-        </div>
+          </div>
 
-        <div className="">
-          <Suspense fallback={<div>Loading Form Step2...</div>}>
+          <div className="">
             <FormStep2 />
-          </Suspense>
-        </div>
+          </div>
+        </Suspense>
       </div>
     </div>
   );

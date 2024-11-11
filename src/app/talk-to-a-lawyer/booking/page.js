@@ -40,9 +40,7 @@ const BookingPage = () => {
         </div>
 
         {/* Only wrap FormBooking in Suspense */}
-        <Suspense fallback={<div>Loading...</div>}>
-          <FormBooking details={details} />
-        </Suspense>
+        <FormBooking details={details} />
       </div>
     </div>
   );
