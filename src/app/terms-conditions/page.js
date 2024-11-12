@@ -62,8 +62,8 @@ const TermsConditions = () => {
             - If a customer engages a third party for assistance, Build My
             Documents will not continue processing the application.
             <br />
-            Refunds will be processed using the same payment method selected at
-            the time of purchase, as outlined on our website.
+            - Refunds will be processed using the same payment method selected
+            at the time of purchase.
             <br />
             <br />
             <strong>Additional Notes:</strong>
