@@ -50,11 +50,13 @@ const TermsConditions = () => {
             <br />
             <strong>Refund and Cancellation Policy:</strong>
             <br />
-            - If our service does not meet expectations for any reason, we will
-            process a refund and notify you. However, refunds are not available
-            for cancellations at the final stage of the process.
+            - Refunds are available if the service or booking has not yet been
+            provided, subject to a 5% deduction to cover resource costs.
             <br />
-            - Booking or consulting charges are non-refundable.
+            - Refunds will not be processed once work has been shared. however,
+            the paid amount may be applied as credit toward an alternative
+            service of equal value within Build My Documents. This credit can be
+            used in part or full for the new service.
             <br />
             - After payment and document verification, customers can postpone
             the service for up to 3 months without incurring a penalty.
