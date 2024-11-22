@@ -22,7 +22,7 @@ const geistMono = localFont({
 export const metadata = {
   title: "Build My Documents",
   description:
-    "Leave the paperwork to us hassle-free documentation made simple!",
+    "Leave the paperwork to Build My Documents hassle-free documentation made simple!",
   openGraph: {
     title: "Build My Documents",
     description:

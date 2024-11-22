@@ -35,7 +35,7 @@ const page = () => {
                 <h2 className="text-xs font-semibold tracking-widest text-gray-900 title-font">
                   Phone
                 </h2>
-                <p className="py-1 text-xs leading-relaxed">+91 9765197403 </p>
+                <p className="py-1 text-xs leading-relaxed">+91 8263079329 </p>
 
                 <h2 className="mt-4 text-xs font-semibold tracking-widest text-gray-900 uppercase title-font">
                   Business Hours
