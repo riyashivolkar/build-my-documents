@@ -49,6 +49,7 @@ export default function RootLayout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16735233208"
         ></script>
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -78,3 +79,8 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+
+
+
+//<!-- Meta Pixel Code -->
