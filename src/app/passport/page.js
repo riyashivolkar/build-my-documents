@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import Association from "../components/digital/Association";
 
 const Page = () => {
   const selectedService = "passport";
@@ -152,9 +153,11 @@ const Page = () => {
                 </h2>
                 <p className="text-gray-500 text-md sm:text-2xl">
                   <br />
-                  Rs. 2,699
-                  <br />
-                  {/* Rs. 4,199 For (Tatkal Application) */}
+                  Rs. 2,499 For (Normal Application) <br />
+                  Rs. 4,499 For (Tatkal Application) <br />
+                  Rs. 99 as booking fee. Need to pay while submitting online
+                  form (This fee is non-refundable and will be adjusted in the
+                  total bill.)
                 </p>
               </div>
             </li>
@@ -168,6 +171,7 @@ const Page = () => {
             </div>
           </ul>
         </div>
+        <Association />
       </div>
     </section>
   );

@@ -31,7 +31,7 @@ const Page = () => {
 
   return (
     <section className="overflow-x-hidden text-gray-600 body-font">
-      <div className="flex flex-wrap items-start px-5 py-16 mx-auto sm:py-24 sm:px-24">
+      <div className="flex flex-wrap items-start px-5 py-16 mx-auto bg-gray-50 sm:py-24 sm:px-24">
         <div className="pr-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0">
           <h1 className="text-2xl font-bold text-gray-900 sm:text-6xl title-font">
             Our Expert consultation will help you to get the food licence
@@ -67,7 +67,7 @@ const Page = () => {
               </span>
             </li>
             <img
-              src="https://fssaihelp.in/wp-content/uploads/2024/04/F-9.jpg"
+              src="/fssai/img.png"
               alt=" FSSAI Food License Registration Apply "
             />
           </ul>
