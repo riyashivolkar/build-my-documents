@@ -16,12 +16,12 @@ const ModalHeader = ({ onClose }) => (
   </button>
 );
 
-// Expert Card Component (Dropdown Item)
+// Expert Card Component
 const ExpertCard = ({ expert, onSelect, isSelected }) => (
   <div
     onClick={() => onSelect(expert)}
-    className={`flex flex-row justify-between  overflow-x-hidden  hover:bg-white p-2 py-2 transition-all duration-300 transform cursor-pointer  ${
-      isSelected ? "bg-white shadow-lg" : "bg-transparent"
+    className={`flex justify-between p-2 cursor-pointer transition-all duration-300 transform ${
+      isSelected ? "bg-white shadow-lg scale-105" : "bg-transparent"
     } hover:scale-105 hover:shadow-xl`}
   >
     <div className="flex items-center space-x-4">
@@ -34,25 +34,18 @@ const ExpertCard = ({ expert, onSelect, isSelected }) => (
         {expert.name}
       </h3>
     </div>
-    <div className="flex items-center">
-      <img
-        src="ScrollGallerypics/right.svg"
-        alt="rightArrow"
-        className="hidden w-8 h-8 transition-opacity duration-200 sm:block hover:opacity-80"
-      />
-      <img
-        src="/downArrow.svg"
-        alt="downArrow"
-        className="block w-8 h-8 transition-opacity duration-200 hover:opacity-80 sm:hidden"
-      />
-    </div>
+    <img
+      src={isSelected ? "/downArrow.svg" : "ScrollGallerypics/right.svg"}
+      alt="Toggle"
+      className="w-8 h-8 transition-opacity duration-200 hover:opacity-80"
+    />
   </div>
 );
 
-// Expert Details Component (Directly Shows Subcategories)
+// Expert Details Component
 const ExpertDetails = ({ expert, onSubCategoryClick }) => (
-  <div className="p-2 mt-2 overflow-x-hidden bg-white rounded-xl ">
-    {expert.subCategories.length > 0 && (
+  <div className="p-4 mt-4 bg-white rounded-xl">
+    {expert.subCategories.length > 0 ? (
       <div className="space-y-2 text-sm text-gray-600">
         {expert.subCategories.map((subCategory) => (
           <div
@@ -64,6 +57,8 @@ const ExpertDetails = ({ expert, onSubCategoryClick }) => (
           </div>
         ))}
       </div>
+    ) : (
+      <p className="text-gray-500">No subcategories available.</p>
     )}
   </div>
 );
@@ -91,11 +86,10 @@ const ExpertModal = ({
     );
   };
 
-  // Pass selected subcategory name to LawyerForm
   const handleSubCategoryClick = (subCategory) => {
     setSelectedSubCategory(subCategory);
     if (mode === "LawyerForm") {
-      onSelectCategory(subCategory); // Pass entire subCategory object
+      onSelectCategory(subCategory); // Pass subcategory data to parent
       onClose();
     } else {
       setShowForm(true);
@@ -108,18 +102,22 @@ const ExpertModal = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-gray-800 bg-opacity-70">
-      {/* Render ExpertModal or PopupForm based on showForm state */}
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-70"
+      aria-modal="true"
+      role="dialog"
+    >
       {!showForm ? (
-        <div className="relative overflow-x-hidden sm:w-2/4 w-full p-8 md:p-10 lg:p-12 bg-white rounded-xl shadow-2xl overflow-y-auto max-h-[80vh]">
+        <div className="relative w-full max-w-4xl p-6 bg-white shadow-xl rounded-xl sm:p-8">
           <ModalHeader onClose={onClose} />
 
-          <h2 className="mb-8 text-xl font-semibold tracking-wide text-center text-gray-900 sm:text-3xl">
+          <h2 className="mb-8 text-xl font-semibold text-center text-gray-900 sm:text-3xl">
             Select Your Category
           </h2>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4">
-            <div className="col-span-1 space-y-6 h-[60vh] rounded-xl bg-orange-50 overflow-y-auto">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-4">
+            {/* Expert List */}
+            <div className="col-span-1 overflow-y-auto overflow-x-hidden bg-orange-50 rounded-xl max-h-[60vh]">
               {experts.map((expert) => (
                 <div key={expert.id}>
                   <ExpertCard
@@ -129,6 +127,7 @@ const ExpertModal = ({
                       selectedExpert && selectedExpert.id === expert.id
                     }
                   />
+                  {/* Details for mobile view */}
                   <div className="sm:hidden">
                     {selectedExpert && selectedExpert.id === expert.id && (
                       <ExpertDetails
@@ -141,7 +140,8 @@ const ExpertModal = ({
               ))}
             </div>
 
-            <div className="col-span-3 h-[60vh] overflow-y-auto hidden sm:block">
+            {/* Expert Details for larger screens */}
+            <div className="hidden sm:block col-span-3 overflow-y-auto max-h-[60vh]">
               {selectedExpert ? (
                 <ExpertDetails
                   expert={selectedExpert}
@@ -149,14 +149,13 @@ const ExpertModal = ({
                 />
               ) : (
                 <p className="text-gray-600">
-                  Please select an expert to see their details.
+                  Select an expert to see details.
                 </p>
               )}
             </div>
           </div>
         </div>
       ) : (
-        // PopupForm Modal with selected subcategory
         <PopupForm
           subcategory={selectedSubCategory}
           onClose={handleClosePopupForm}

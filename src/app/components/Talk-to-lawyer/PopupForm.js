@@ -58,12 +58,7 @@ const PopupForm = ({ onClose, subcategory }) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-70"
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-70">
       <div className="relative w-full max-w-lg p-6 bg-white shadow-2xl md:p-10 lg:p-12 rounded-xl md:max-w-2xl lg:max-w-3xl">
         {/* Close Button */}
         <button
@@ -179,7 +174,7 @@ const PopupForm = ({ onClose, subcategory }) => {
           </div>
         </form>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

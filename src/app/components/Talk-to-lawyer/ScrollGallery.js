@@ -108,6 +108,8 @@ const ScrollGallery = () => {
           </button>
         </div>
       </div>
+
+      {/* Modal rendered outside of ScrollGallery */}
       {selectedExpertId && (
         <ExpertModal
           experts={legalExperts}
@@ -118,4 +120,5 @@ const ScrollGallery = () => {
     </section>
   );
 };
+
 export default ScrollGallery;

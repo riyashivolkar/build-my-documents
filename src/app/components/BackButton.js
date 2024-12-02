@@ -20,14 +20,14 @@ const BackButton = () => {
   return (
     <div className="w-full sm:py-2 py-0 sm:px-24 px-5 flex justify-start bg-[#f7941d] items-center">
       {/* Back Button */}
-      <div className="flex flex-row items-center">
-        <button onClick={handleBack}>
+      <div className="flex flex-row items-center py-2">
+        {/* <button onClick={handleBack}>
           <img
             src="/backArrow.svg"
             alt="Go back"
             className="object-cover w-10 h-10"
           />
-        </button>
+        </button> */}
       </div>
     </div>
   );
