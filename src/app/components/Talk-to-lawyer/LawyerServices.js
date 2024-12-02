@@ -2,47 +2,88 @@ import React from "react";
 
 const LawyerServices = () => {
   return (
-    <div className="px-4 py-12 mt-40 bg-gray-100 sm:px-8 lg:px-24">
+    <div className="px-4 py-12 mt-10 bg-gray-100 sm:mt-40 sm:px-8 lg:px-24">
       <div className="mx-auto ">
         {/* Header Section */}
-        <div className="mt-16 mb-12 text-left">
-          <h2 className="py-4 text-3xl font-semibold text-gray-900 sm:text-5xl">
-            Legal Consultation Online India{" "}
+        <div className="mt-16 mb-12 space-y-6 text-left">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-5xl">
+            Legal Consultation Online India
           </h2>
-          <p className="mt-4 text-lg leading-5 tracking-wide text-gray-700 sm:text-3xl">
-            Navigating legal matters is now easier than ever with Build My
-            Documents' online legal consultation services. Whether you're
-            dealing with property issues, corporate law, or criminal law, you
-            can now access professional legal advice through video or phone
-            consultations. Our platform connects you with experienced lawyers
-            specializing in various areas, including Cyber Crime, Copyright Law,
-            Domestic Violence, Divorce and Family Law, Intellectual Property,
-            Business and Corporate Law, and more. Schedule a personalized
-            consultation to receive tailored legal guidance and address your
-            concerns from the comfort of your home. At Build My Documents, we
-            empower you to confidently handle legal challenges. Our platform
-            ensures a seamless connection with legal professionals, offering
-            fast and effective resolutions to your legal queries. Get trusted,
-            reliable legal advice now and secure the best possible outcome for
-            your case.
+          <p className="text-lg leading-7 tracking-wide text-gray-700 sm:text-2xl">
+            Navigating legal matters is now easier than ever with
+            <span className="font-semibold text-gray-900">
+              {" "}
+              Build My Documents'{" "}
+            </span>
+            online legal consultation services. Whether you're dealing with
+            property issues, corporate law, or criminal law, you can now access
+            professional legal advice through video or phone consultations.
+          </p>
+          <p className="text-lg leading-7 tracking-wide text-gray-700 sm:text-2xl">
+            Our platform connects you with experienced lawyers specializing in
+            various areas, including:
+          </p>
+          <ul className="pl-6 text-lg leading-7 tracking-wide text-gray-700 list-disc sm:text-2xl">
+            <li>Cyber Crime</li>
+            <li>Copyright Law</li>
+            <li>Domestic Violence</li>
+            <li>Divorce and Family Law</li>
+            <li>Intellectual Property</li>
+            <li>Business and Corporate Law</li>
+            <li>And more...</li>
+          </ul>
+          <p className="text-lg leading-7 tracking-wide text-gray-700 sm:text-2xl">
+            Schedule a personalized consultation to receive tailored legal
+            guidance and address your concerns from the comfort of your home. At
+            <span className="font-semibold text-gray-900">
+              {" "}
+              Build My Documents,{" "}
+            </span>
+            we empower you to confidently handle legal challenges.
+          </p>
+          <p className="text-lg leading-7 tracking-wide text-gray-700 sm:text-2xl">
+            Our platform ensures a seamless connection with legal professionals,
+            offering fast and effective resolutions to your legal queries.
+            <span className="font-bold text-blue-600">
+              {" "}
+              Get trusted, reliable legal advice now{" "}
+            </span>
+            and secure the best possible outcome for your case.
           </p>
         </div>
 
         {/* What Are Lawyer Services? Section */}
-        <div className="mt-16 mb-12 text-left">
-          <h2 className="py-4 text-3xl font-semibold text-gray-700 sm:text-5xl">
+        <div className="mt-16 mb-12 space-y-6 text-left">
+          <h2 className="py-4 text-3xl font-bold text-gray-900 sm:text-5xl">
             What are Lawyer Services?
           </h2>
-          <p className="mt-4 text-lg leading-5 tracking-wide text-gray-700 sm:text-3xl">
-            At Build My Documents, our online lawyer consultation services cater
-            to a wide range of legal needs. Whether you’re facing challenges
-            with a business contract, need assistance with a power of attorney,
-            or require legal guidance on website development and intellectual
-            property rights, our platform connects you with top-tier lawyers who
-            specialize in these areas. Our online legal consultation services
-            provide you with convenient access to expert legal advice, helping
-            you resolve legal issues effectively and efficiently, all from the
-            comfort of your home or office.
+          <p className="text-lg leading-7 tracking-wide text-gray-700 sm:text-2xl">
+            At{" "}
+            <span className="font-semibold text-gray-900">
+              Build My Documents
+            </span>
+            , our online lawyer consultation services cater to a wide range of
+            legal needs. Whether you’re:
+          </p>
+          <ul className="pl-6 text-lg leading-7 tracking-wide text-gray-700 list-disc sm:text-2xl">
+            <li>Facing challenges with a business contract</li>
+            <li>Needing assistance with a power of attorney</li>
+            <li>Requiring legal guidance on website development</li>
+            <li>Seeking advice on intellectual property rights</li>
+          </ul>
+          <p className="text-lg leading-7 tracking-wide text-gray-700 sm:text-2xl">
+            Our platform connects you with top-tier lawyers who specialize in
+            these areas and more. Experience convenient access to expert legal
+            advice, tailored to your needs, helping you resolve legal issues
+            effectively and efficiently.
+          </p>
+          <p className="text-lg leading-7 tracking-wide text-gray-700 sm:text-2xl">
+            With{" "}
+            <span className="font-semibold text-gray-900">
+              Build My Documents,
+            </span>
+            you can address your legal concerns seamlessly, all from the comfort
+            of your home or office.
           </p>
         </div>
 

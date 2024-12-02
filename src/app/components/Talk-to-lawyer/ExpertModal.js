@@ -20,7 +20,7 @@ const ModalHeader = ({ onClose }) => (
 const ExpertCard = ({ expert, onSelect, isSelected }) => (
   <div
     onClick={() => onSelect(expert)}
-    className={`flex flex-row justify-between hover:bg-white p-2 py-2 transition-all duration-300 transform cursor-pointer  ${
+    className={`flex flex-row justify-between   hover:bg-white p-2 py-2 transition-all duration-300 transform cursor-pointer  ${
       isSelected ? "bg-white shadow-lg" : "bg-transparent"
     } hover:scale-105 hover:shadow-xl`}
   >
