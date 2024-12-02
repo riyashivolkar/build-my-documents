@@ -5,7 +5,7 @@ const LawyerSteps = () => {
   return (
     <div className="flex justify-center px-5 py-2 sm:px-24">
       <div className="flex flex-col items-center justify-center w-full ">
-        <h1 className="py-12 text-2xl font-bold leading-snug tracking-tight text-center text-transparent bg-clip-text bg-gradient-to-br from-gray-800 via-gray-000 to-gray-800 sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="py-12 text-2xl font-bold leading-snug tracking-tight text-center text-transparent bg-clip-text bg-gradient-to-br from-gray-800 via-gray-000 to-gray-800 sm:text-5xl md:text-6xl ">
           Steps to Get Legal Consultation Online
         </h1>
         <div className="relative flex flex-col items-center justify-between hidden w-full sm:flex-row lg:flex">
