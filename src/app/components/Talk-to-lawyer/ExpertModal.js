@@ -111,7 +111,7 @@ const ExpertModal = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden bg-gray-800 bg-opacity-70">
       {/* Render ExpertModal or PopupForm based on showForm state */}
       {!showForm ? (
-        <div className="relative sm:w-2/4 w-full p-8 md:p-10 lg:p-12 bg-white rounded-xl shadow-2xl overflow-y-auto max-h-[80vh]">
+        <div className="relative overflow-x-hidden sm:w-2/4 w-full p-8 md:p-10 lg:p-12 bg-white rounded-xl shadow-2xl overflow-y-auto max-h-[80vh]">
           <ModalHeader onClose={onClose} />
 
           <h2 className="mb-8 text-xl font-semibold tracking-wide text-center text-gray-900 sm:text-3xl">
