@@ -34,14 +34,14 @@ const Page = () => {
       className="overflow-x-hidden text-gray-600 bg-repeat body-font sm:pl-10 sm:pr-10 bg-bg-pattern animate-bg-scrolling-reverse" // Add the background class here
       initial={{ opacity: 0 }} // Fade in effect for the section
       animate={{ opacity: 1 }} // End state: fully visible
-      transition={{ duration: 0.6 }} // Duration for the fade-in effect
+      transition={{ duration: 1.5 }} // Duration for the fade-in effect
     >
       <div className="flex flex-wrap items-start px-5 py-16 mx-auto sm:py-24 sm:px-24">
         <motion.div
           className="pr-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0"
           initial={{ opacity: 0, x: -50 }} // Slide in from left
           animate={{ opacity: 1, x: 0 }} // End state: visible and centered
-          transition={{ duration: 0.8 }} // Duration for the animation
+          transition={{ duration: 1.8 }} // Duration for the animation
         >
           <h1 className="text-2xl font-bold text-gray-900 sm:text-6xl title-font">
             Online Lawyer Consultation
