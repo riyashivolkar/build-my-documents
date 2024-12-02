@@ -20,7 +20,7 @@ const ModalHeader = ({ onClose }) => (
 const ExpertCard = ({ expert, onSelect, isSelected }) => (
   <div
     onClick={() => onSelect(expert)}
-    className={`flex flex-row justify-between   hover:bg-white p-2 py-2 transition-all duration-300 transform cursor-pointer  ${
+    className={`flex flex-row justify-between  overflow-x-hidden  hover:bg-white p-2 py-2 transition-all duration-300 transform cursor-pointer  ${
       isSelected ? "bg-white shadow-lg" : "bg-transparent"
     } hover:scale-105 hover:shadow-xl`}
   >
@@ -51,7 +51,7 @@ const ExpertCard = ({ expert, onSelect, isSelected }) => (
 
 // Expert Details Component (Directly Shows Subcategories)
 const ExpertDetails = ({ expert, onSubCategoryClick }) => (
-  <div className="p-2 mt-2 bg-white rounded-xl ">
+  <div className="p-2 mt-2 overflow-x-hidden bg-white rounded-xl ">
     {expert.subCategories.length > 0 && (
       <div className="space-y-2 text-sm text-gray-600">
         {expert.subCategories.map((subCategory) => (
