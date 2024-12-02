@@ -38,37 +38,40 @@ const Page = () => {
     >
       <div className="flex flex-wrap items-start px-5 py-16 mx-auto sm:py-24 sm:px-24">
         <div className="pr-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0">
-          <h1 className="text-2xl font-bold text-gray-900 sm:text-6xl title-font">
-            Online Lawyer Consultation
-          </h1>
-          <ul className="mt-12 space-y-4 text-base leading-relaxed sm:text-2xl">
-            <li className="flex items-start">
-              <Image
-                src="/correct.svg"
-                alt="Check mark"
-                width={40}
-                height={40}
-                className="w-8 h-8 mr-2 sm:w-10 sm:h-10"
-              />
-              <span className="">
-                Comprehensive, affordable legal support from experienced lawyers
-                for litigation, document drafting, and compliance.
-              </span>
-            </li>
-            <li className="flex items-start">
-              <Image
-                src="/correct.svg"
-                alt="Check mark"
-                width={40}
-                height={40}
-                className="w-8 h-8 mr-2 sm:w-10 sm:h-10"
-              />
-              <span>
-                Tailored advice, dispute resolution, and round-the-clock support
-                for all your legal needs.
-              </span>
-            </li>
-          </ul>
+          <div className="bg-white ">
+            <h1 className="text-2xl font-bold text-gray-900 sm:text-6xl title-font">
+              Online Lawyer Consultation
+            </h1>
+            <ul className="mt-12 space-y-4 text-base leading-relaxed sm:text-2xl">
+              <li className="flex items-start">
+                <Image
+                  src="/correct.svg"
+                  alt="Check mark"
+                  width={40}
+                  height={40}
+                  className="w-8 h-8 mr-2 sm:w-10 sm:h-10"
+                />
+                <span className="">
+                  Comprehensive, affordable legal support from experienced
+                  lawyers for litigation, document drafting, and compliance.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <Image
+                  src="/correct.svg"
+                  alt="Check mark"
+                  width={40}
+                  height={40}
+                  className="w-8 h-8 mr-2 sm:w-10 sm:h-10"
+                />
+                <span>
+                  Tailored advice, dispute resolution, and round-the-clock
+                  support for all your legal needs.
+                </span>
+              </li>
+            </ul>
+          </div>
+
           <ScrollGallery />
         </div>
 
