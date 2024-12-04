@@ -323,7 +323,7 @@ export const serviceUrls = {
   // gst: "https://payments.cashfree.com/forms/gst--registration",
   // panCard: "https://payments.cashfree.com/forms/pan--card",
   // food: "https://payments.cashfree.com/forms/fssai--registration",
-  passport: "https://payments.cashfree.com/forms/passport--form",
+  // passport: "https://payments.cashfree.com/forms/passport--form",
   // ration: "https://payments.cashfree.com/forms/ration--card",
   // shops: "https://payments.cashfree.com/forms/Shops--and--Establishment",
   // marraige: "https://payments.cashfree.com/forms/marriage--registration",
