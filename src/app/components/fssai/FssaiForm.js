@@ -96,8 +96,7 @@ const FssaiForm = ({ onClose = () => {}, subcategory }) => {
       onClose();
 
       // Redirect to the Cashfree Payments URL
-      window.location.href =
-        "https://payments.cashfree.com/forms/fssai--registration";
+      window.location.href = "/";
     } catch (error) {
       console.error("Error saving form data: ", error);
     }
