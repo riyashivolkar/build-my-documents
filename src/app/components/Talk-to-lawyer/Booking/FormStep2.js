@@ -46,7 +46,7 @@ const FormStep2 = () => {
         console.log("Phone number and case details updated successfully!");
 
         // Redirect to the specified URL
-        router.push("/");
+        router.push("https://payments.cashfree.com/forms/talk-to-lawyer");
       } catch (error) {
         console.error("Error updating document:", error);
       }
