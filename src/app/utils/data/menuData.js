@@ -318,7 +318,7 @@ export const serviceUrls = {
   // birth: "https://payments.cashfree.com/forms/birth--certificate",
   // death: "https://payments.cashfree.com/forms/death--certificate",
   // senior: "https://payments.cashfree.com/forms/senior--citizen",
-  // law: "https://payments.cashfree.com/forms/legal--aid",
+  law: "https://payments.cashfree.com/forms/legal-aid",
   // msme: "https://payments.cashfree.com/forms/msme--registration",
   // gst: "https://payments.cashfree.com/forms/gst--registration",
   // panCard: "https://payments.cashfree.com/forms/pan--card",
