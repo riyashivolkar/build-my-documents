@@ -157,7 +157,7 @@ const LawyerServices = () => {
               </p>
             </div>
           </div>
-          <div className="p-8 mt-20 text-left bg-gray-900 rounded-lg shadow-lg">
+          <div className="p-2 mt-20 text-left bg-gray-900 rounded-lg shadow-lg sm:p-8">
             <h4 className="text-xl font-semibold text-orange-500 sm:text-3xl">
               Looking for Online Lawyers Near Me?
             </h4>
@@ -181,7 +181,7 @@ const LawyerServices = () => {
             <h4 className="mt-4 text-xl font-semibold text-orange-500 sm:text-3xl">
               Benefits of Hiring a Lawyer
             </h4>
-            <ul className="pl-6 mt-4 space-y-4 text-lg leading-relaxed text-white list-disc sm:text-2xl">
+            <ul className="mt-4 space-y-4 leading-relaxed text-gray-300 list-disc text-md sm:text-2xl">
               <li>
                 <strong>Expertise and Knowledge:</strong> Our lawyers at Build
                 My Documents have advanced legal training, making them
@@ -211,14 +211,14 @@ const LawyerServices = () => {
                 financial and personal well-being.
               </li>
             </ul>
-            <p className="text-lg leading-7 tracking-wide text-white sm:text-2xl">
+            {/* <p className="p-2 text-lg leading-7 tracking-wide text-white sm:text-2xl">
               Legal services are crucial when dealing with any complex
               situation. Whether you're starting a business, going through a
               divorce, or involved in a dispute, a lawyer ensures you navigate
               the system with confidence and protection. At Build My Documents,
               we guide you through your legal journey with expertise and
               understanding.
-            </p>
+            </p> */}
           </div>
         </div>
 
