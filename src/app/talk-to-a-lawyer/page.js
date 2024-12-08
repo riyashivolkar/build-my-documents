@@ -30,11 +30,11 @@ const Page = () => {
   };
 
   return (
-    <motion.section
-      className="overflow-x-hidden text-gray-600 bg-repeat body-font sm:pl-10 sm:pr-10 bg-bg-pattern animate-bg-scrolling-reverse" // Add the background class here
-      initial={{ opacity: 0 }} // Fade in effect for the section
-      animate={{ opacity: 1 }} // End state: fully visible
-      transition={{ duration: 1.5 }} // Duration for the fade-in effect
+    <div
+      className="overflow-x-hidden text-gray-600 bg-repeat body-font animate-bg-scrolling-reverse" // Add the background class here
+      // initial={{ opacity: 0 }} // Fade in effect for the section
+      // animate={{ opacity: 1 }} // End state: fully visible
+      // transition={{ duration: 1.5 }} // Duration for the fade-in effect
     >
       <div className="flex flex-wrap items-start px-5 py-16 mx-auto sm:py-24 sm:px-24">
         <div className="pr-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0">
@@ -85,12 +85,12 @@ const Page = () => {
         </div>
       </div>
 
-      <motion.div
+      {/* <motion.div
         className="w-full py-2 sm:py-5 bg-gradient-to-r from-orange-500 via-green-400 to-green-600"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-      ></motion.div>
+      ></motion.div> */}
 
       <LawyerSteps />
       <BookingStepsMobile />
@@ -108,7 +108,7 @@ const Page = () => {
           />
         </div>
       )}
-    </motion.section>
+    </div>
   );
 };
 

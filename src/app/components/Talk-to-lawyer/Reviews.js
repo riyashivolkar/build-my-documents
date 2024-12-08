@@ -2,14 +2,14 @@ import React from "react";
 
 const Reviews = () => {
   return (
-    <section className="flex items-center justify-center py-20 bg-white ">
+    <section className="flex items-center justify-center py-20 bg-black ">
       <div className="w-full px-16 ">
         <div className="container flex flex-col items-start mx-auto lg:items-center">
-          <p className="relative flex items-start justify-start w-full text-lg font-bold tracking-wider text-blue-500 uppercase lg:justify-center lg:items-center">
+          <p className="relative flex items-start justify-start w-full text-lg font-bold tracking-wider text-gray-300 uppercase lg:justify-center lg:items-center">
             Don't just take our word for it
           </p>
 
-          <h2 className="relative flex items-start justify-start w-full max-w-3xl text-xl font-bold sm:text-5xl lg:justify-center">
+          <h2 className="relative flex items-start justify-start w-full max-w-3xl text-xl font-bold text-white sm:text-5xl lg:justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
@@ -20,7 +20,7 @@ const Reviews = () => {
             </svg>
             See what others are saying
           </h2>
-          <div className="block w-full h-0.5 max-w-lg mt-6 bg-purple-100 rounded-full"></div>
+          <div className="block w-full h-0.5 max-w-lg mt-6 bg-green-500 rounded-full"></div>
 
           <div className="items-center justify-center w-full mt-12 mb-4 lg:flex">
             <div className="flex flex-col items-start justify-start w-full h-auto mb-12 lg:w-1/3 lg:mb-0">
@@ -32,7 +32,7 @@ const Reviews = () => {
                   />
                 </div>
                 <div className="flex flex-col items-start justify-center">
-                  <h4 className="font-bold text-gray-800">Riddhi</h4>
+                  <h4 className="font-bold text-white">Riddhi</h4>
                   <div className="flex flex-row ">
                     <img src="/reviews/star.svg" height={25} width={25} />
                     <img src="/reviews/star.svg" height={25} width={25} />
@@ -42,14 +42,14 @@ const Reviews = () => {
                   </div>
                 </div>
               </div>
-              <blockquote className="mt-8 text-lg text-gray-500">
+              <blockquote className="mt-8 text-lg text-gray-300">
                 "Quick and seamless process. They connected me with a great
                 lawyer who handled everything. Highly recommend!"
               </blockquote>
             </div>
             <div className="flex flex-col items-start justify-start w-full h-auto px-0 mx-0 mb-12 border-l border-r border-transparent lg:w-1/3 lg:mb-0 lg:px-8 lg:mx-8 lg:border-gray-200">
               <div className="flex items-center justify-center">
-                <div className="w-16 h-16 mr-4 overflow-hidden bg-gray-200 rounded-full">
+                <div className="w-16 h-16 mr-4 overflow-hidden bg-gray-300 rounded-full">
                   <img
                     src="/reviews/ujwala.png"
                     className="object-cover w-full h-full"
@@ -58,7 +58,7 @@ const Reviews = () => {
                 <div className="flex flex-col items-start justify-center">
                   {" "}
                   <div className="flex flex-col items-start justify-center">
-                    <h4 className="font-bold text-gray-800">Ujwala Palyekar</h4>
+                    <h4 className="font-bold text-white">Ujwala Palyekar</h4>
                     <div className="flex flex-row ">
                       <img src="/reviews/star.svg" height={25} width={25} />
                       <img src="/reviews/star.svg" height={25} width={25} />
@@ -69,7 +69,7 @@ const Reviews = () => {
                   </div>{" "}
                 </div>
               </div>
-              <blockquote className="mt-8 text-lg text-gray-500">
+              <blockquote className="mt-8 text-lg text-gray-300">
                 "Professional and stress-free! Responsive consultants who
                 catered to my needs perfectly. Reliable service!"
               </blockquote>
@@ -83,7 +83,7 @@ const Reviews = () => {
                   />
                 </div>
                 <div className="flex flex-col items-start justify-center">
-                  <h4 className="font-bold text-gray-800">Damodar</h4>
+                  <h4 className="font-bold text-white">Damodar</h4>
                   <div className="flex flex-row ">
                     <img src="/reviews/star.svg" height={25} width={25} />
                     <img src="/reviews/star.svg" height={25} width={25} />
@@ -93,7 +93,7 @@ const Reviews = () => {
                   </div>{" "}
                 </div>
               </div>
-              <blockquote className="mt-8 text-lg text-gray-500">
+              <blockquote className="mt-8 text-lg text-gray-300">
                 "The best choice for my business! They took care of every legal
                 requirement. Truly unmatched expertise!"
               </blockquote>

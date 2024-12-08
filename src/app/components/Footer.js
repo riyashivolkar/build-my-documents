@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font">
-      <div className="flex flex-col flex-wrap items-center px-3 py-8 bg-gray-300 justify-evenly sm:px-5 md:flex-row md:py-12">
+    <footer className="text-gray-900 body-font ">
+      <div className="flex flex-col flex-wrap items-center px-3 py-8 bg-white justify-evenly sm:px-5 md:flex-row md:py-12">
         {/* Logo Section */}
         <div className="flex-shrink-0 w-full mb-6 text-center md:text-left md:w-1/4 md:mb-0">
           <a
@@ -15,7 +15,7 @@ const Footer = () => {
           >
             <Image
               src="/logo1.png"
-              className="bg-gray-300 "
+              className="bg-white"
               alt="logo"
               width={240}
               height={58}
@@ -35,7 +35,7 @@ const Footer = () => {
               {companyLinks.map((link) => (
                 <li key={link.name} className="py-1">
                   <Link href={link.href}>
-                    <div className="text-xs text-gray-600 sm:text-sm hover:text-gray-800">
+                    <div className="text-xs text-gray-900 sm:text-sm hover:text-gray-300">
                       {link.name}
                     </div>
                   </Link>
@@ -53,7 +53,7 @@ const Footer = () => {
               {legalLinks.map((link) => (
                 <li key={link.name} className="py-1">
                   <Link href={link.href}>
-                    <div className="text-xs text-gray-600 sm:text-sm hover:text-gray-800">
+                    <div className="text-xs text-gray-900 sm:text-sm hover:text-gray-300">
                       {link.name}
                     </div>
                   </Link>
@@ -81,14 +81,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Footer Bottom */}
-      <div className="flex flex-col items-center justify-center px-3 py-3 ">
-        <p className="text-xs text-center text-gray-800 sm:text-sm">
+      <div className="flex flex-col items-center justify-center px-3 py-3 bg-white ">
+        <p className="text-xs text-center text-gray-900 sm:text-sm">
           © 2024 <span className="font-semibold">BUILD MY DOCUMENTS</span> ALL
           RIGHTS RESERVED
         </p>
       </div>
+      {/* Footer Bottom */}
     </footer>
   );
 };
