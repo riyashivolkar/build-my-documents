@@ -83,13 +83,13 @@ const ScrollGallery = () => {
                 className="p-4 transition-all transform bg-white border-2 border-orange-400 shadow-2xl hover:scale-105 hover:shadow-lg rounded-xl"
                 onClick={() => openModal(expert.id)}
               >
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center justify-center">
                   <img
                     alt={expert.name}
-                    className="object-cover w-20 h-20 mb-4 md:w-24 md:h-24"
+                    className="object-cover w-10 h-10 mb-4 md:w-12 md:h-12"
                     src={expert.image}
                   />
-                  <h2 className="text-xs font-semibold text-gray-800 sm:text-base">
+                  <h2 className="text-xs font-semibold text-gray-800 sm:text-sm">
                     {expert.name}
                   </h2>
                 </div>

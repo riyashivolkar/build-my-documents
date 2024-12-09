@@ -13,9 +13,9 @@ const Header = () => {
   };
 
   return (
-    <header className="text-gray-600 bg-white body-font">
-      <div className="flex flex-row flex-wrap items-center p-1 px-5 mx-auto sm:px-24">
-        <div className="flex items-center mb-1 font-medium text-gray-900 title-font md:mb-0">
+    <header className="text-gray-600 ">
+      <div className="flex flex-row flex-wrap items-center p-1 px-2 mx-auto sm:px-20">
+        <div className="flex items-start mb-1 font-medium text-gray-900 md:mb-0">
           <Link href="/">
             <Image
               src="/logo1.png"
@@ -23,7 +23,7 @@ const Header = () => {
               width={280}
               height={68}
               priority
-              className="w-64 h-auto md:w-80 md:h-auto"
+              className="w-32 h-auto md:w-36 md:h-auto"
             />
           </Link>
         </div>
@@ -41,14 +41,14 @@ const Header = () => {
 
         {/* Navigation items for desktop */}
         <nav
-          className={`hidden md:flex flex-wrap items-center justify-center text-3xl md:ml-auto`}
+          className={`hidden md:flex flex-wrap items-center justify-center text-lg md:ml-auto`}
         >
           {menuHeader.map((item, index) =>
             item.path ? (
               <Link
                 key={index}
                 href={item.path}
-                className="mr-8  cursor-pointer hover:text-[#f7941d]"
+                className="mr-8    text-gray-900  cursor-pointer hover:text-[#f7941d]"
               >
                 {item.name}
               </Link>

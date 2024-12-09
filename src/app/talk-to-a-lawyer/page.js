@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // Import motion from framer-motion
 import FormLawyer from "../components/Talk-to-lawyer/LawyerForm";
 import ExpertModal from "../components/Talk-to-lawyer/ExpertModal";
 import ScrollGallery from "../components/Talk-to-lawyer/ScrollGallery";
@@ -32,41 +31,64 @@ const Page = () => {
   return (
     <div
       className="overflow-x-hidden text-gray-600 bg-repeat body-font animate-bg-scrolling-reverse" // Add the background class here
-      // initial={{ opacity: 0 }} // Fade in effect for the section
-      // animate={{ opacity: 1 }} // End state: fully visible
-      // transition={{ duration: 1.5 }} // Duration for the fade-in effect
     >
-      <div className="flex flex-wrap items-start px-5 py-16 mx-auto sm:py-24 sm:px-24">
-        <div className="pr-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0">
+      <div className="flex flex-wrap items-start px-5 py-5 sm:px-24">
+        <div className="pr-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 lg:flex-shrink-0">
           <div className="bg-white ">
-            <h1 className="text-2xl font-bold text-gray-900 sm:text-6xl title-font">
+            <div className="py-2 space-x-2 text-sm font-semibold text-gray-700 title-font">
+              <a className="underline" href="/">
+                Home
+              </a>
+              <span>&gt;</span>
+              <span className="text-gray-800">Talk to Lawyer</span>
+            </div>
+            <h1 className="text-lg font-bold text-gray-900 sm:text-2xl title-font">
               Online Lawyer Consultation
             </h1>
-            <ul className="mt-12 space-y-4 text-base leading-relaxed sm:text-2xl">
+            <ul className="mt-5 space-y-3 text-sm leading-relaxed sm:space-y-8 sm:text-base">
               <li className="flex items-start">
                 <Image
                   src="/correct.svg"
                   alt="Check mark"
-                  width={40}
-                  height={40}
-                  className="w-8 h-8 mr-2 sm:w-10 sm:h-10"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 mr-2 sm:w-6 sm:h-6"
                 />
                 <span className="">
-                  Comprehensive, affordable legal support from experienced
-                  lawyers for litigation, document drafting, and compliance.
+                  Online Lawyer Consultation advice at{" "}
+                  <span className="text-gray-500 line-through"> ₹699 </span>{" "}
+                  <strong>₹499 </strong>
                 </span>
               </li>
               <li className="flex items-start">
                 <Image
                   src="/correct.svg"
                   alt="Check mark"
-                  width={40}
-                  height={40}
-                  className="w-8 h-8 mr-2 sm:w-10 sm:h-10"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 mr-2 sm:w-6 sm:h-6"
+                />
+                <span className="">
+                  Affordable <strong>legal support</strong>
+                  for
+                  <strong> litigation, drafting,</strong>
+                  and <strong>compliance</strong>
+                  from experienced lawyers.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <Image
+                  src="/correct.svg"
+                  alt="Check mark"
+                  width={20}
+                  height={20}
+                  className="w-5 h-5 mr-2 sm:w-6 sm:h-6"
                 />
                 <span>
-                  Tailored advice, dispute resolution, and round-the-clock
-                  support for all your legal needs.
+                  <strong> Legal support, tailored advice,</strong>
+                  and
+                  <strong> dispute resolution</strong>
+                  for your needs.
                 </span>
               </li>
             </ul>
@@ -84,13 +106,6 @@ const Page = () => {
           />
         </div>
       </div>
-
-      {/* <motion.div
-        className="w-full py-2 sm:py-5 bg-gradient-to-r from-orange-500 via-green-400 to-green-600"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      ></motion.div> */}
 
       <LawyerSteps />
       <BookingStepsMobile />

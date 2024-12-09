@@ -1,118 +1,96 @@
+import Image from "next/image";
 import Link from "next/link";
+import GstForm from "../components/gst/GstForm";
 
 const Page = () => {
-  const selectedService = "gst";
-  return (
-    <section className="p-8 text-gray-500 body-font">
-      <div className="container px-5 mx-auto bg-white py-14">
-        <div className="flex flex-col w-full p-4 mb-20 text-start">
-          <h1 className="pb-10 sm:text-4xl   text-xl  font-medium text-[#f7941d] title-font">
-            GST Registration Online{" "}
-          </h1>
+  const listItems = [
+    {
+      id: 1,
+      text: (
+        <>
+          GST Application filing at{" "}
+          <span className="text-gray-500 line-through">₹899</span>
+          <strong> ₹599</strong>
+        </>
+      ),
+    },
+    {
+      id: 2,
+      text: (
+        <>
+          Simple process for{" "}
+          <strong>new GST registration, application status tracking,</strong>{" "}
+          and <strong> filing for clarifications</strong>
+        </>
+      ),
+    },
+    {
+      id: 3,
+      text: (
+        <>
+          Tailored GST services for{" "}
+          <strong>citizens, eCommerce sellers,</strong> and{" "}
+          <strong> government offices</strong>
+        </>
+      ),
+    },
+    {
+      id: 4,
+      text: (
+        <>
+          Simplify GST compliance:{" "}
+          <strong>
+            CA-assisted online document submission, GST filing, GSTIN
+            registration
+          </strong>
+        </>
+      ),
+    },
+  ];
 
-          <ul className="mt-8 space-y-6">
-            <li className="flex items-start space-x-4">
-              <img
-                src="/document.svg"
-                alt="Description of image 1"
-                className="object-cover w-6 h-6 sm:w-12 sm:h-12"
-              />
-              <div>
-                <h2 className="sm:text-2xl text-md font-semibold text-[#f7941d]">
-                  Documents Required for GST Certificate
-                </h2>
-                <p className="text-gray-500 text-md sm:text-2xl">
-                  <br />
-                  1. Aadhaar Card
-                  <br />
-                  2. PAN Card
-                  <br />
-                  3. Bank Account Proof
-                  <br />
-                  4. One Passport Size Photo
-                  <br />
-                  <br />
-                  <strong>Address Proof of Business Premises</strong>
-                  <br />
-                  1. Electricity Bill from Owner
-                  <br />
-                  2. Rent Agreement
-                  <br />
-                  3. NOC (No Objection Certificate)
-                </p>
-              </div>
-            </li>
-            <br />
-            <li className="flex items-start space-x-4">
-              <img
-                src="/clock.svg"
-                alt="Description of image 1"
-                className="object-cover w-6 h-6 sm:w-12 sm:h-12"
-              />
-              <div>
-                <h2 className="sm:text-2xl text-md font-semibold text-[#f7941d]">
-                  How it works{" "}
-                </h2>
-                <p className="text-gray-500 text-md sm:text-2xl">
-                  <br />
-                  Register Online
-                  <br />
-                  Upload Documents
-                  <br />
-                  Payment
-                  <br />
-                </p>
-              </div>
-            </li>
-            <br />
-            <li className="flex items-start space-x-4">
-              <img
-                src="/clock.svg"
-                alt="Description of image 1"
-                className="object-cover w-6 h-6 sm:w-12 sm:h-12"
-              />
-              <div>
-                <h2 className="sm:text-2xl text-md font-semibold text-[#f7941d]">
-                  Time Duration
-                </h2>
-                <p className="text-gray-500 text-md sm:text-2xl">
-                  <br />
-                  7-10 working days
-                  <br />
-                </p>
-              </div>
-            </li>
-            <br />
-            <li className="flex items-start space-x-4">
-              <img
-                src="/money.svg"
-                alt="Description of image 1"
-                className="object-cover w-6 h-6 sm:w-12 sm:h-12"
-              />
-              <div>
-                <h2 className="sm:text-2xl text-md font-semibold text-[#f7941d]">
-                  Charges
-                </h2>
-                <p className="text-gray-500 text-md sm:text-2xl ">
-                  <br />
-                  <s className="mx-4 ">Rs. 680</s> Rs. 620
-                  <br />
-                  {/* Rs. 99 as booking fee. Need to pay while submitting online form. */}
-                </p>
-              </div>
-            </li>
-            <br />
-            <div className="flex flex-row items-end justify-end p-5 ">
-              <Link href={`/form?service=${selectedService}`}>
-                <button className="bg-[#f7941d] px-4 py-2 sm:text-2xl text-sm shadow-lg text-white rounded-md">
-                  CONTINUE
-                </button>
-              </Link>
+  return (
+    <div className="overflow-x-hidden text-gray-600 bg-repeat body-font animate-bg-scrolling-reverse">
+      <div className="flex flex-wrap items-start px-5 py-5 sm:px-24">
+        <div className="pr-0 lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 lg:flex-shrink-0">
+          <div className="bg-white">
+            {/* Breadcrumb */}
+            <div className="py-2 space-x-2 text-sm font-semibold text-gray-700 title-font">
+              <a className="underline" href="/">
+                Home
+              </a>
+              <span>&gt;</span>
+              <span className="text-gray-800">GST</span>
             </div>
-          </ul>
+
+            {/* Title */}
+            <h1 className="text-lg font-bold text-gray-900 sm:text-2xl title-font">
+              GST Registration Online
+            </h1>
+
+            {/* List */}
+            <ul className="mt-5 space-y-3 text-sm leading-relaxed sm:space-y-8 sm:text-base">
+              {listItems.map((item) => (
+                <li key={item.id} className="flex items-start">
+                  <Image
+                    src="/correct.svg"
+                    alt="Check mark"
+                    width={20}
+                    height={20}
+                    className="w-5 h-5 mr-2 sm:w-6 sm:h-6"
+                  />
+                  <span>{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* GstForm - Right side for large devices */}
+        <div className="flex flex-col w-full mt-10 rounded-lg lg:w-2/5 md:w-1/2 ">
+          <GstForm />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

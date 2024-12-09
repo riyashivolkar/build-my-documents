@@ -28,7 +28,7 @@ const ExpertCard = ({ expert, onSelect, isSelected }) => (
       <img
         src={expert.image}
         alt={expert.name}
-        className="w-10 h-10 border-orange-200 rounded-full sm:w-20 sm:h-20"
+        className="w-5 h-5 border-orange-200 rounded-full sm:w-10 sm:h-10"
       />
       <h3 className="text-base font-semibold text-gray-900 sm:text-xl">
         {expert.name}
@@ -103,21 +103,21 @@ const ExpertModal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-70"
+      className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-gray-800 bg-opacity-70 sm:px-6 lg:px-8"
       aria-modal="true"
       role="dialog"
     >
       {!showForm ? (
-        <div className="relative w-full max-w-4xl p-6 bg-white shadow-xl rounded-xl sm:p-8">
+        <div className="relative w-full max-w-md p-6 bg-white shadow-xl sm:max-w-2xl lg:max-w-4xl rounded-xl sm:p-8">
           <ModalHeader onClose={onClose} />
 
-          <h2 className="mb-8 text-xl font-semibold text-center text-gray-900 sm:text-3xl">
+          <h2 className="mb-8 text-lg font-semibold text-center text-gray-900 sm:text-xl lg:text-3xl">
             Select Your Category
           </h2>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
             {/* Expert List */}
-            <div className="col-span-1 overflow-y-auto overflow-x-hidden bg-orange-50 rounded-xl max-h-[60vh]">
+            <div className="col-span-1 overflow-y-auto bg-orange-50 rounded-xl max-h-[50vh] sm:max-h-[60vh] lg:max-h-[70vh]">
               {experts.map((expert) => (
                 <div key={expert.id}>
                   <ExpertCard
@@ -141,14 +141,14 @@ const ExpertModal = ({
             </div>
 
             {/* Expert Details for larger screens */}
-            <div className="hidden sm:block col-span-3 overflow-y-auto max-h-[60vh]">
+            <div className="hidden sm:block col-span-3 overflow-y-auto max-h-[50vh] sm:max-h-[60vh] lg:max-h-[70vh] bg-white rounded-xl">
               {selectedExpert ? (
                 <ExpertDetails
                   expert={selectedExpert}
                   onSubCategoryClick={handleSubCategoryClick}
                 />
               ) : (
-                <p className="text-gray-600">
+                <p className="text-sm text-gray-600 lg:text-base">
                   Select an expert to see details.
                 </p>
               )}

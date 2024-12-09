@@ -1,10 +1,11 @@
+"use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../../firebase/firebaseConfig";
 import { useRouter } from "next/navigation";
 
-const LawyerForm = ({
+const GstForm = ({
   onClose = () => {}, // Provide a default empty function
   subcategory,
   onOpenModal,
@@ -25,25 +26,12 @@ const LawyerForm = ({
     setSelectedSlot(slot); // Set selected time slot
   };
 
-  // Array of language options
-  const languageOptions = ["English", "Hindi", "Marathi", "Konkani"];
-
   const handleCategoryClick = () => {
     onOpenModal();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (
-      !formData.email ||
-      !formData.phone ||
-      !formData.city ||
-      !formData.languages
-    ) {
-      alert("Please fill in all fields.");
-      return;
-    }
 
     console.log("Submitting form, navigating to /talk-to-a-lawyer/booking...");
 
@@ -97,14 +85,14 @@ const LawyerForm = ({
       <div className="relative w-full max-w-lg px-6 py-4 bg-white shadow-2xl sm:py-8 shadow-black md:px-7 lg:px-8 rounded-xl md:max-w-2xl lg:max-w-3xl">
         <div className="flex flex-col mb-8 text-center">
           <h2 className="mb-1 text-lg font-semibold text-gray-900 sm:text-xl ">
-            Talk to a Lawyer
+            Apply for GST Registration
           </h2>
         </div>
 
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className="relative pb-3 text-sm sm:text-sm">
-              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 font-medium text-gray-600 bg-white">
+              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 text-xs font-medium text-gray-600 bg-white sm:text-sm">
                 Email
               </p>
               <input
@@ -118,8 +106,8 @@ const LawyerForm = ({
                 required
               />
             </div>
-            <div className="relative pb-3 text-sm sm:text-base">
-              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 font-medium text-gray-600 bg-white">
+            <div className="relative pb-3 text-sm sm:text-sm">
+              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 text-xs font-medium text-gray-600 bg-white sm:text-sm">
                 Phone Number
               </p>
               <input
@@ -133,8 +121,8 @@ const LawyerForm = ({
                 required
               />
             </div>
-            <div className="relative pb-3 text-sm sm:text-base">
-              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 font-medium text-gray-600 bg-white">
+            <div className="relative pb-3 text-sm sm:text-sm">
+              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 text-xs font-medium text-gray-600 bg-white sm:text-sm">
                 City
               </p>
               <input
@@ -149,54 +137,11 @@ const LawyerForm = ({
               />
             </div>
 
-            {/* Dropdown for languages */}
-            <div className="relative pb-3 text-sm sm:text-base">
-              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 font-medium text-gray-600 bg-white">
-                Language
-              </p>
-              <select
-                id="languages"
-                name="languages"
-                value={formData.languages}
-                onChange={handleChange}
-                className="w-full px-2 py-4 border border-gray-300 rounded-lg sm:py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                required
-              >
-                <option value="" disabled>
-                  Select a language
-                </option>
-                {languageOptions.map((language) => (
-                  <option key={language} value={language}>
-                    {language}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="relative text-sm sm:text-base">
-              <p className="absolute pt-0 pb-0 pl-2 pr-2 mb-0 ml-2 mr-0 -mt-3 font-medium text-gray-600 bg-white">
-                Select category
-              </p>
-              <input
-                type="text"
-                id="category"
-                name="category"
-                value={
-                  subcategory?.name || formData.category || "Select Category"
-                }
-                onClick={handleCategoryClick}
-                readOnly
-                className="w-full px-2 py-4 border border-gray-300 rounded-lg sm:py-3 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                placeholder="Select a category"
-                required
-              />
-            </div>
-
             <button
               type="submit"
               className="w-full py-3 mt-4 text-base font-semibold text-white transition bg-orange-500 rounded-lg sm:py-2 md:text-base hover:bg-orange-600"
             >
-              Book an appointment
+              Submit
             </button>
           </div>
         </form>
@@ -205,4 +150,4 @@ const LawyerForm = ({
   );
 };
 
-export default LawyerForm;
+export default GstForm;
