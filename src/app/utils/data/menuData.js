@@ -1,79 +1,79 @@
 const menuData = [
-  {
-    id: 1,
-    title: "Birth Certificate",
-    path: "/birth-certificate",
-    icon: (
-      <img
-        src="/menuImg/birth.svg"
-        alt="Birth Certificate Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
-  {
-    id: 2,
-    title: "Death Certificate",
-    path: "/death-certificate",
-    icon: (
-      <img
-        src="/menuImg/death.svg"
-        alt="Death Certificate Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
-  {
-    id: 3,
-    title: "Senior Citizen Card",
-    path: "/senior-citizen-card",
-    icon: (
-      <img
-        src="/menuImg/senior.svg"
-        alt="Senior Citizen Card Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
-  {
-    id: 4,
-    title: "Marriage Certificate ",
-    path: "/marraige-certificate",
+  // {
+  //   id: 1,
+  //   title: "Birth Certificate",
+  //   path: "/birth-certificate",
+  //   icon: (
+  //     <img
+  //       src="/menuImg/birth.svg"
+  //       alt="Birth Certificate Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
+  // {
+  //   id: 2,
+  //   title: "Death Certificate",
+  //   path: "/death-certificate",
+  //   icon: (
+  //     <img
+  //       src="/menuImg/death.svg"
+  //       alt="Death Certificate Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
+  // {
+  //   id: 3,
+  //   title: "Senior Citizen Card",
+  //   path: "/senior-citizen-card",
+  //   icon: (
+  //     <img
+  //       src="/menuImg/senior.svg"
+  //       alt="Senior Citizen Card Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
+  // {
+  //   id: 4,
+  //   title: "Marriage Certificate ",
+  //   path: "/marraige-certificate",
 
-    icon: (
-      <img
-        src="/menuImg/marraige.svg"
-        alt="Marriage Registration  Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
-  {
-    id: 5,
-    title: "Shops and Establishment Act ",
-    path: "/shops-and-establishment-act",
+  //   icon: (
+  //     <img
+  //       src="/menuImg/marraige.svg"
+  //       alt="Marriage Registration  Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
+  // {
+  //   id: 5,
+  //   title: "Shops and Establishment Act ",
+  //   path: "/shops-and-establishment-act",
 
-    icon: (
-      <img
-        src="/menuImg/labour.svg"
-        alt="Shops and Establishment  Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
-  {
-    id: 6,
-    title: "Ration Card",
-    path: "/ration-card",
+  //   icon: (
+  //     <img
+  //       src="/menuImg/labour.svg"
+  //       alt="Shops and Establishment  Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
+  // {
+  //   id: 6,
+  //   title: "Ration Card",
+  //   path: "/ration-card",
 
-    icon: (
-      <img
-        src="/menuImg/ration.svg"
-        alt="Ration Card Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
+  //   icon: (
+  //     <img
+  //       src="/menuImg/ration.svg"
+  //       alt="Ration Card Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
   {
     id: 7,
     title: "Food License (FSSAI)",
@@ -86,58 +86,58 @@ const menuData = [
       />
     ),
   },
-  {
-    id: 8,
-    title: "Passport",
-    path: "/passport",
+  // {
+  //   id: 8,
+  //   title: "Passport",
+  //   path: "/passport",
 
-    icon: (
-      <img
-        src="/menuImg/passport.svg"
-        alt="Passport Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
+  //   icon: (
+  //     <img
+  //       src="/menuImg/passport.svg"
+  //       alt="Passport Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
 
-  {
-    id: 9,
-    title: "Legal Aid",
-    path: "/legal-aid",
-    icon: (
-      <img src="/menuImg/law.svg" alt="Travel Visa" className="w-500 h-500" />
-    ),
-  },
-  {
-    id: 10,
-    title: "Pan Card",
-    path: "/pan-card",
-    icon: (
-      <img
-        src="/menuImg/pancard.svg"
-        alt="Pan Card Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
+  // {
+  //   id: 9,
+  //   title: "Legal Aid",
+  //   path: "/legal-aid",
+  //   icon: (
+  //     <img src="/menuImg/law.svg" alt="Travel Visa" className="w-500 h-500" />
+  //   ),
+  // },
+  // {
+  //   id: 10,
+  //   title: "Pan Card",
+  //   path: "/pan-card",
+  //   icon: (
+  //     <img
+  //       src="/menuImg/pancard.svg"
+  //       alt="Pan Card Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
   {
     id: 11,
     title: "GST",
     path: "/gst",
     icon: <img src="/menuImg/gst.svg" alt="GST Icon" className="w-500 h-500" />,
   },
-  {
-    id: 12,
-    title: "MSME Certificate",
-    path: "/msme-certificate",
-    icon: (
-      <img
-        src="/menuImg/msme.svg"
-        alt="MSME Certificate Icon"
-        className="w-500 h-500"
-      />
-    ),
-  },
+  // {
+  //   id: 12,
+  //   title: "MSME Certificate",
+  //   path: "/msme-certificate",
+  //   icon: (
+  //     <img
+  //       src="/menuImg/msme.svg"
+  //       alt="MSME Certificate Icon"
+  //       className="w-500 h-500"
+  //     />
+  //   ),
+  // },
 ];
 
 export default menuData;

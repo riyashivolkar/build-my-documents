@@ -5,7 +5,7 @@ const Menu = () => {
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-4 mx-auto bg-gray-200 rounded-t-lg py-14">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-6">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-2">
           {menuData.map((item) =>
             item.path ? (
               <Link key={item.id} href={item.path} passHref>
