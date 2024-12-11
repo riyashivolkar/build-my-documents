@@ -2,63 +2,54 @@ import React from "react";
 
 const GSTinfo = () => {
   return (
-    <section class="text-gray-600 body-font">
-      <div class="container flex flex-wrap px-5 py-24 mx-auto items-center">
-        <div class="md:w-1/2 md:pr-12 md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-            Pitchfork Kickstarter Taxidermy
-          </h1>
-          <p class="leading-relaxed text-base">
-            Locavore cardigan small batch roof party blue bottle blog meggings
-            sartorial jean shorts kickstarter migas sriracha church-key synth
-            succulents. Actually taiyaki neutra, distillery gastropub pok pok
-            ugh.
-          </p>
-          <a class="text-indigo-500 inline-flex items-center mt-4">
-            Learn More
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              class="w-4 h-4 ml-2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-        <div class="flex flex-col md:w-1/2 md:pl-12">
-          <h2 class="title-font font-semibold text-gray-800 tracking-wider text-sm mb-3">
-            CATEGORIES
-          </h2>
-          <nav class="flex flex-wrap list-none -mb-1">
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">First Link</a>
-            </li>
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-            </li>
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-            </li>
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-            </li>
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">Fifth Link</a>
-            </li>
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">Sixth Link</a>
-            </li>
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">Seventh Link</a>
-            </li>
-            <li class="lg:w-1/3 mb-1 w-1/2">
-              <a class="text-gray-600 hover:text-gray-800">Eighth Link</a>
-            </li>
-          </nav>
+    <section className="text-gray-100 bg-orange-500 body-font">
+      <div className="container px-6 py-16 mx-auto md:px-12 lg:px-20">
+        <div className="flex flex-wrap items-center bg-white rounded-lg shadow-lg">
+          {/* Image Section */}
+          <div className="flex flex-col items-center justify-center w-full pt-8 mb-6 bg-white rounded-lg sm:px-4 md:w-1/4 md:mb-0">
+            <img
+              alt="What is GST?"
+              src="/gst/gst.jpg"
+              className="object-cover w-40 h-40 border-4 border-gray-100 rounded-lg shadow-lg sm:w-48 sm:h-52 md:w-56 md:h-56"
+            />
+          </div>
+          {/* Text Section */}
+          <div className="w-full md:pl-8 md:w-3/4">
+            <div className="p-6 space-y-6 text-gray-800 bg-white rounded-lg ">
+              <h2 className="text-lg font-semibold sm:text-2xl">
+                What is
+                <span className="text-orange-500"> GST Registration? </span>
+              </h2>
+              <p className="text-sm leading-relaxed sm:text-base">
+                GST registration is the process by which a business obtains a
+                unique identification number, known as a GSTIN (Goods and
+                Services Tax Identification Number), making it liable to pay
+                Goods and Services Tax (GST) in India. According to the Central
+                Goods and Services Tax Act of 2017, businesses with an annual
+                turnover exceeding ₹40 lakh (or ₹20 lakh in specific special
+                category states) are required to register as taxable entities.
+                The GSTIN, a 15-digit number, uniquely identifies each taxpayer
+                under the GST framework and allows authorities to monitor
+                transactions and related data effectively.
+              </p>
+              <p className="text-sm leading-relaxed sm:text-base">
+                GST, or Goods and Services Tax, is a destination-based,
+                multi-stage, indirect tax that replaces various other taxes,
+                including VAT and excise duties. Under the GST Act of 2017,
+                businesses that previously paid service tax, excise duty, or VAT
+                must now register for GST. Additionally, GST registration is
+                mandatory for eCommerce sellers regardless of turnover.
+              </p>
+              <p className="text-sm leading-relaxed sm:text-base">
+                Citizens can complete GST registration online through the
+                official GST portal, eliminating the need for in-person visits
+                to government offices. After submitting an application, the
+                portal generates an ARN (Application Reference Number) status
+                immediately, allowing applicants to track their registration
+                progress.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import GstForm from "../components/gst/GstForm";
+import GSTinfo from "../components/gst/GSTinfo";
+import GSTsteps from "../components/gst/GSTsteps";
 
 const Page = () => {
   const listItems = [
@@ -90,6 +92,8 @@ const Page = () => {
           <GstForm />
         </div>
       </div>
+      <GSTinfo />
+      {/* <GSTsteps /> */}
     </div>
   );
 };
