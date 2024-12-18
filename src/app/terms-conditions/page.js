@@ -67,6 +67,9 @@ const TermsConditions = () => {
             - Refunds will be processed using the same payment method selected
             at the time of purchase.
             <br />
+            - The refund will be credited to customer's bank account within 3-4
+            business days.
+            <br />
             <br />
             <strong>Additional Notes:</strong>
             <br />
